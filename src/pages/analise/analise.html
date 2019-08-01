@@ -33,14 +33,11 @@
         <ion-card-header> Faturas: </ion-card-header>
         <ion-grid>
             <ion-row>
-              <ion-col col-5>
+              <ion-col col-6>
                 Local:
               </ion-col>
-              <ion-col col-5>
+              <ion-col col-3>
                 Valor:
-              </ion-col>
-              <ion-col col-2>
-                
               </ion-col>
             </ion-row>
 
@@ -49,7 +46,7 @@
               <ion-col col-6 *ngIf='pagamento.title != "Ignorar" && pagamento.title != "Divida"'>
                 {{pagamento.title}}
               </ion-col>
-              <ion-col col-6 *ngIf='pagamento.title != "Ignorar" && pagamento.title != "Divida"'  (press)="AlteraValor(somaPagDiv(pagamento.title),pagamento.title)">
+              <ion-col col-6 *ngIf='pagamento.title != "Ignorar" && pagamento.title != "Divida"'  (press)="AlteraValor(somaPagDiv2(pagamento.title),pagamento.title)">
                   {{somaPagDiv2(pagamento.title)}}
               </ion-col> 
             </ion-row>
@@ -57,8 +54,8 @@
               <ion-col col-6>
                 NuConta Total
               </ion-col>
-              <ion-col col-6 (press)='AlteraValor(SomaNu("NuConta","Reserva de emergência","Reserva para metas","Reserva para estudos"),"NuConta")'>
-                {{SomaNu2("NuConta","Reserva de emergência","Reserva para metas", "Reserva para estudos")}}
+              <ion-col col-6 (press)='AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")'>
+                {{somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}
               </ion-col>
             </ion-row>
 
@@ -122,7 +119,7 @@
         </ion-row>
 
         <div *ngFor = "let keyy of retornaKeys(prev)">
-          <ion-row  *ngIf="keyy != 'key' && keyy != 'total' && keyy != 'ano' && keyy != 'mes' && keyy != 'Ignorar' "  (click)="goToAnalise(prev.total,keyy)">
+          <ion-row  *ngIf="keyy != 'key' && keyy != 'total' && keyy != 'ano' && keyy != 'mes' && keyy != 'Ignorar'  && keyy != 'comentario'"  (click)="goToAnalise(prev.total,keyy)">
             <ion-col col-5>
                 {{keyy}}
             </ion-col>
@@ -140,25 +137,50 @@
           </ion-row>
         </div>
 
-        <ion-row>
-            <ion-col col-5>
+        <ion-row class="bold">
+            <ion-col col-5 class="bold">
               Total
             </ion-col>
             <ion-col col-3 class='center'>
-              {{retornaArray(prev)}}
+              {{retornaArray(prev)}}  
             </ion-col>
             <ion-col col-3 class='center'>
               {{somaTotal(prev.total)}}
             </ion-col>
         </ion-row>
+        <ion-row class="bold">
+          <ion-col col-5 class="bold">
+            Mensal/Reserva
+          </ion-col>
+          <ion-col col-3 class='center'>
+            {{retornaArray(prev)-(somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total)))  }}
+          </ion-col>
+          <ion-col col-3 class='center'>
+            {{somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total))}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="bold">
+          <ion-col col-5 class="bold">
+            Receita
+          </ion-col>
+          <ion-col col-3 class='center'>
+            {{somaReceita(prev.total)}}
+          </ion-col>
+        </ion-row>
 
         <button ion-button clear col-3 padding small (click)="VerMais()">Ver Mais</button>
         <div *ngIf="showM == true">
+        <ion-row>
+          <ion-col>
+            Comentário: {{prev.comentario}}
+          </ion-col>
+        </ion-row>
         <ion-row *ngFor="let pagamento of pagamentos" (click)="goToAnalisePag(prev.total,pagamento.title)">
-            <ion-col>
+            <ion-col col-5>
               {{pagamento.title}}
             </ion-col>
-            <ion-col>
+            <ion-col col-3  class='center'>
                 {{somaPagamento(pagamento.title, prev.total)}}
             </ion-col>
             <ion-col>

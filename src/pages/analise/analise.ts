@@ -319,6 +319,15 @@ export class AnalisePage {
     return(Math.round(valorCat))
   }
 
+  somaReceita(data){
+    var valorCat = 0 
+    this.compraList.forEach(item => {if (String(item['title']).includes(String("Entrou")) && 
+      String([String(item['ano']),String(item['mes'])].join(' - ')) == String(data)) { valorCat = valorCat + Number(item['payload'])}}
+    );
+
+    return(Math.round(valorCat))
+  }
+
   somaCatDiv(categoria){
     var valorCat = 0 
     this.ComprasArray.forEach(item => {if (String(item[2]) == String(categoria)) { valorCat = valorCat + Number(item[0])}}
@@ -343,6 +352,8 @@ export class AnalisePage {
   somaPagDiv2(pagamento){
     var valorCat = 0 
     this.compraList.forEach(item => {if (String(item['pagamento']) == String(pagamento)) { valorCat = valorCat + Number(item['payload'])}}
+    );
+    this.compraList.forEach(item => {if (String(item['categoria']) == String(pagamento)) { valorCat = valorCat - Number(item['payload'])}}
     );
     return(Math.round(-valorCat))
   }
@@ -481,7 +492,7 @@ export class AnalisePage {
   getCategorias(previsao){
     let a = Object.keys(previsao)
     let array = []
-    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano') {array.push(element)} 
+    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano' && element != "comentario") {array.push(element)} 
     });
     return (array)
     
