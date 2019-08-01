@@ -22,7 +22,8 @@
         <ion-item-sliding *ngIf = "([c.ano,c.mes].join(' - ')) == a">
           <ion-item class="altura">
             <ion-icon *ngIf="(c.categoria.includes('Divida'))" item-start name="contacts" color="grey"></ion-icon>
-            <ion-icon  *ngIf="(c.categoria.includes('Divida')) == false " item-start color="{{cor(c.categoria)}}" [name]=(icon(c.categoria))></ion-icon>
+            <ion-icon *ngIf="(c.title.includes('Entrou'))" item-start name="cash" color="primary"></ion-icon>
+            <ion-icon  *ngIf="(c.categoria.includes('Divida')) == false && (c.title.includes('Entrou')) == false" item-start color="{{cor(c.categoria)}}" [name]=(icon(c.categoria))></ion-icon>
              <ion-grid>
               <ion-row>
                 <ion-col col-9>
