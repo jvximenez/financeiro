@@ -23,6 +23,7 @@ export class PrevisãoPage {
     'total': '',
     'ano':'',
     'mes':'',
+    'comentario':'',
   };
   public previsoes;
   public valores;
