@@ -44,6 +44,7 @@
         "gradient-color": "^2.0.1",
         "ionic-angular": "3.9.2",
         "ionicons": "3.0.0",
+        "net.coconauts.notification-listener": "git+https://github.com/coconauts/NotificationListener-cordova.git",
         "ng2-charts": "^1.6.0",
         "rxjs": "^6.2.2",
         "rxjs-compat": "^6.2.2",
@@ -64,7 +65,8 @@
             "cordova-plugin-ionic-webview": {},
             "cordova-plugin-ionic-keyboard": {},
             "cordova-plugin-statusbar": {},
-            "com-darryncampbell-cordova-plugin-intent": {}
+            "com-darryncampbell-cordova-plugin-intent": {},
+            "net.coconauts.notification-listener": {}
         },
         "platforms": [
             "browser",
