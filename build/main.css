@@ -30810,6 +30810,15 @@ page-home .btn3 {
   width: 80px;
   border: 1.5px solid;
   font-size: 11px;
+  margin: 15px;
+}
+
+page-home .btn4 {
+  display: block;
+  height: 60px;
+  width: 90px;
+  border: 1.0px solid;
+  font-size: 11px;
   margin: 10px;
 }
 
