@@ -1503,11 +1503,11 @@ var FirebaseServiceProvider = /** @class */ (function () {
 
 var map = {
 	"../pages/add-previsão/add-previsão.module": [
-		681,
+		682,
 		10
 	],
 	"../pages/analise-categoria/analise-categoria.module": [
-		682,
+		681,
 		9
 	],
 	"../pages/analise-pagamento/analise-pagamento.module": [
@@ -2816,8 +2816,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/add-previsão/add-previsão.module#AddPrevisãoPageModule', name: 'AddPrevisãoPage', segment: 'add-previsão', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise-categoria/analise-categoria.module#AnaliseCategoriaPageModule', name: 'AnaliseCategoriaPage', segment: 'analise-categoria', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-previsão/add-previsão.module#AddPrevisãoPageModule', name: 'AddPrevisãoPage', segment: 'add-previsão', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise-pagamento/analise-pagamento.module#AnalisePagamentoPageModule', name: 'AnalisePagamentoPage', segment: 'analise-pagamento', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise/analise.module#AnalisePageModule', name: 'AnalisePage', segment: 'analise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/configurações/configurações.module#ConfiguraçõesPageModule', name: 'ConfiguraçõesPage', segment: 'configurações', priority: 'low', defaultHistory: [] },
