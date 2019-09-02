@@ -68,7 +68,8 @@
 
     <ion-item>
       <ion-label (click)="Mostra()">Data</ion-label>
-      <ion-datetime  (click)="Mostra()" displayFormat="DD/MM/YYYY" [(ngModel)]="DataO"></ion-datetime>
+      <ion-datetime  (click)="Mostra()" displayFormat="DDD - DD/MM/YYYY" [(ngModel)]="DataO"
+      dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>
     </ion-item>
 
     <ion-row>
@@ -86,6 +87,8 @@
     </ion-row>
   </ion-grid>
 
+<!-------------------------------------- ATALHOS ---------------------------------------------------------------------------->  
+
   <div *ngIf = "show == true" class="fadeIn"> 
     <ion-grid>
       <ion-row justify-content-center >
@@ -96,6 +99,7 @@
     </ion-grid>
   </div>
 
+ <!-------------------------------------- GRAFICO ---------------------------------------------------------------------------->  
   <div *ngIf="showGraf == true" class="fadeIn">
     <p class="paragrafo">Gasto Total/Previsto -- {{compras.categoria}} -- {{Arredonda(ArrayTotal[0])}}/{{Arredonda(ArrayTotal[1])}}</p>
     <ion-row>
