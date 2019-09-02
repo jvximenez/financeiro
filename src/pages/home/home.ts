@@ -401,6 +401,20 @@ export class HomePage {
     this.compras.payload = String(Number(this.compras.payload) / 2)
   }
 
+  DividaEu(item){
+    item.categoria = "Divida"
+    this.divida = "Daniela"
+    this.categoriaDiv.title = "Date"
+  }
+
+  DividaDani(item){
+    item.pagamento = "Divida"
+    item.categoria = "Divida"
+    this.divida = "Daniela"
+    this.categoriaDiv.title = "Date"
+    item.payload = -item.payload
+  }
+
   
 
 
