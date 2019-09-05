@@ -73,11 +73,15 @@ export class HomePage {
 
   public favorito;
   public diaMes;Dataa
+  public copia = "oi"
 
   constructor(public navCtrl: NavController,
      public dbService: FirebaseServiceProvider,
      private statusBar: StatusBar,
-     public alertCtrl: AlertController) {
+     public alertCtrl: AlertController,
+     ) {
+
+
 
     this.DataO = new Date().toISOString();
     this.Dataa = new Date
@@ -116,7 +120,7 @@ export class HomePage {
 
     
   }
-    
+
 
   teste(array){
     var data = new Date
