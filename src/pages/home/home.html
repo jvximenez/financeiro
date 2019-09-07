@@ -72,6 +72,15 @@
       dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>
     </ion-item>
 
+
+    <ion-row>
+      <ion-item (press)="AtalhoDivide()">
+          <ion-label fixed>Ataho:</ion-label>
+          <ion-input  text-right type="text" clearInput="true" value="" #b  [(ngModel)]="atalhoCopia"></ion-input>
+        </ion-item>
+    </ion-row>
+
+
     <ion-row>
       <ion-item no-lines>
       </ion-item>

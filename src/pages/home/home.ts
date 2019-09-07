@@ -74,6 +74,7 @@ export class HomePage {
   public favorito;
   public diaMes;Dataa
   public copia = "oi"
+  public atalhoCopia
 
   constructor(public navCtrl: NavController,
      public dbService: FirebaseServiceProvider,
@@ -144,6 +145,19 @@ export class HomePage {
   daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }
+
+  AtalhoDivide(){
+    var local
+    var valor
+    var categoria
+    var array = this.atalhoCopia.split("/")
+    array[0] = array[0].replace(",",".")
+    this.compras.title = array[1]
+    this.compras.payload = array[0]
+    this.compras.categoria = array[2]
+    
+
+  } 
 
   moveFocus(nextElement) {
     nextElement.setFocus();
