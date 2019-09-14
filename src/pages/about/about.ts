@@ -92,8 +92,11 @@ export class AboutPage {
     this.countryRef.on('value', countryList => {
       let countries = [];
       countryList.forEach( country => {
-        countries.push(country.val());
-        countries.reverse()
+        var obj
+        obj = country.val()
+        obj.key = country.key
+        countries.push(obj);
+        
         return false;
       });
     
