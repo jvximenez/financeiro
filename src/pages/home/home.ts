@@ -359,6 +359,7 @@ export class HomePage {
 
   retornaArray(prevv){
     let cat = this.getCategorias(prevv)
+    console.log(cat)
     let a = 0 ;
     cat.forEach (element => a += (Number(prevv[element])))
     return a
@@ -369,7 +370,7 @@ export class HomePage {
   getCategorias(previsao){
     let a = Object.keys(previsao)
     let array = []
-    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano') {array.push(element)} 
+    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano'  && element != 'comentario') {array.push(element)} 
     });
     return (array)
     
@@ -381,7 +382,7 @@ export class HomePage {
 
   CriaArrayGrafico(Categoria){
     var ArrayT = [0,0,0,0]
-    this.Compras.forEach(itens => itens.forEach (item => {if(item.categoria == Categoria && item.categoria != "Ignorar" && item.ano == this.ano && Number(item.mes) == Number(this.mes)){ArrayT[0] += Number(item.payload)}}))
+    this.Compras.forEach(itens => itens.forEach (item => {if(item.categoria == Categoria && item.categoria != "Ignorar"  && item.ano == this.ano && Number(item.mes) == Number(this.mes)){ArrayT[0] += Number(item.payload)}}))
     this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ArrayT[1] += Number(item[Categoria])}}))
     this.Compras.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes && item.categoria !="Ignorar"){ArrayT[2] += Number(item.payload)}}))
     this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ArrayT[3] += Number(this.retornaArray(item))}}))
