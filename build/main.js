@@ -6,7 +6,7 @@ webpackJsonp([11],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditAtalhoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configura_es_configura_es__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -76,7 +76,7 @@ var EditAtalhoPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TodasAsComprasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_edit__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(93);
@@ -231,7 +231,7 @@ var TodasAsComprasPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnaliseCategoriaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_edit__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -304,7 +304,7 @@ var AnaliseCategoriaPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePagamentoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_edit__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -377,7 +377,7 @@ var AnalisePagamentoPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
@@ -846,7 +846,7 @@ var AnalisePage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrevisãoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
@@ -1046,7 +1046,7 @@ var PrevisãoPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GraficosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chart_js__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_chart_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1234,7 +1234,7 @@ var GraficosPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditConfPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1302,7 +1302,7 @@ var EditConfPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditPagamentoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1503,11 +1503,11 @@ var FirebaseServiceProvider = /** @class */ (function () {
 
 var map = {
 	"../pages/add-previsão/add-previsão.module": [
-		682,
+		681,
 		10
 	],
 	"../pages/analise-categoria/analise-categoria.module": [
-		681,
+		682,
 		9
 	],
 	"../pages/analise-pagamento/analise-pagamento.module": [
@@ -1523,11 +1523,11 @@ var map = {
 		6
 	],
 	"../pages/edit-atalho/edit-atalho.module": [
-		686,
+		687,
 		5
 	],
 	"../pages/edit-conf/edit-conf.module": [
-		687,
+		686,
 		4
 	],
 	"../pages/edit-pagamento/edit-pagamento.module": [
@@ -1535,11 +1535,11 @@ var map = {
 		3
 	],
 	"../pages/edit/edit.module": [
-		689,
+		690,
 		2
 	],
 	"../pages/graficos/graficos.module": [
-		690,
+		689,
 		1
 	],
 	"../pages/previsão/previsão.module": [
@@ -1569,7 +1569,7 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnaliseDividaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_edit__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(93);
@@ -1915,7 +1915,7 @@ var TabsPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_edit__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(93);
@@ -1989,8 +1989,10 @@ var AboutPage = /** @class */ (function () {
         this.countryRef.on('value', function (countryList) {
             var countries = [];
             countryList.forEach(function (country) {
-                countries.push(country.val());
-                countries.reverse();
+                var obj;
+                obj = country.val();
+                obj.key = country.key;
+                countries.push(obj);
                 return false;
             });
             _this.countryList = countries;
@@ -2205,7 +2207,7 @@ var AboutPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configura_es_configura_es__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(167);
@@ -2225,12 +2227,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, dbService, statusBar, alertCtrl) {
+    function HomePage(navCtrl, dbService, statusBar, alertCtrl, toastCtrl) {
         this.navCtrl = navCtrl;
         this.dbService = dbService;
         this.statusBar = statusBar;
         this.alertCtrl = alertCtrl;
+        this.toastCtrl = toastCtrl;
         this.show = false;
         this.showGraf = false;
         this.compras = {
@@ -2252,6 +2256,7 @@ var HomePage = /** @class */ (function () {
         this.a2 = 0;
         this.a3 = 0;
         this.a4 = 0;
+        this.copia = "oi";
         this.DataO = new Date().toISOString();
         this.Dataa = new Date;
         this.Criacao(0);
@@ -2301,6 +2306,16 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.daysInMonth = function (month, year) {
         return new Date(year, month, 0).getDate();
     };
+    HomePage.prototype.AtalhoDivide = function () {
+        var local;
+        var valor;
+        var categoria;
+        var array = this.atalhoCopia.split("/");
+        array[0] = array[0].replace(",", ".");
+        this.compras.title = array[1];
+        this.compras.payload = array[0];
+        this.compras.categoria = array[2];
+    };
     HomePage.prototype.moveFocus = function (nextElement) {
         nextElement.setFocus();
     };
@@ -2329,6 +2344,7 @@ var HomePage = /** @class */ (function () {
         if (this.categoriaDiv.title != '' && Number(this.compras.payload) > 0) {
             this.Dividindo();
             this.compras.title += " -Divido Paguei";
+            this.PopUp();
             this.dbService.save('compras', compras);
             this.compras.categoria = this.categoriaDiv.title;
             this.categoriaDiv.title = '';
@@ -2338,12 +2354,14 @@ var HomePage = /** @class */ (function () {
             this.compras.title += " -Divido Pagou";
             this.compras.pagamento = "Ignorar";
             this.compras.payload = String(Number(this.compras.payload));
+            this.PopUp();
             this.dbService.save('compras', compras);
             this.compras.pagamento = "Divida";
             this.compras.categoria = this.categoriaDiv.title;
             this.compras.payload = String(Number(this.compras.payload) * (-1));
             this.categoriaDiv.title = '';
         }
+        this.PopUp();
         this.dbService.save('compras', compras);
         this.previsto = this.dbService.getAll('previsao');
         this.Compras = (this.dbService.getAllQuantidade('compras', 100)).map(function (a) { return a.reverse(); });
@@ -2357,9 +2375,11 @@ var HomePage = /** @class */ (function () {
         var date = new Date;
         date.setDate(date.getDate() - 1);
         this.DataO = date.toISOString();
+        this.PopUp();
         this.save(this.compras);
     };
     HomePage.prototype.save2 = function (teste) {
+        this.PopUp();
         this.dbService.save('compras', 'Janeiro');
     };
     HomePage.prototype.NavConfirg = function () {
@@ -2408,6 +2428,7 @@ var HomePage = /** @class */ (function () {
             compras.categoria = atalho.categoria;
             compras.payload = atalho.gasto;
             compras.pagamento = atalho.pagamento;
+            this.PopUp();
             this.dbService.save('compras', compras);
         }
         if (atalho.gasto == 0) {
@@ -2435,6 +2456,7 @@ var HomePage = /** @class */ (function () {
                             text: 'Salvar',
                             handler: function (data) {
                                 compras.payload = data.valor;
+                                _this.PopUp();
                                 _this.dbService.save('compras', compras);
                                 console.log('Saved clicked');
                             }
@@ -2469,6 +2491,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.retornaArray = function (prevv) {
         var cat = this.getCategorias(prevv);
+        console.log(cat);
         var a = 0;
         cat.forEach(function (element) { return a += (Number(prevv[element])); });
         return a;
@@ -2477,7 +2500,7 @@ var HomePage = /** @class */ (function () {
         var a = Object.keys(previsao);
         var array = [];
         a.forEach(function (element) {
-            if (element != 'key' && element != 'total' && element != 'mes' && element != 'ano') {
+            if (element != 'key' && element != 'total' && element != 'mes' && element != 'ano' && element != 'comentario') {
                 array.push(element);
             }
         });
@@ -2537,14 +2560,23 @@ var HomePage = /** @class */ (function () {
         this.categoriaDiv.title = "Date";
         item.payload = -item.payload;
     };
+    HomePage.prototype.PopUp = function () {
+        var texto = "Adicionado " + this.compras.title;
+        var toast = this.toastCtrl.create({
+            message: texto,
+            duration: 2000
+        });
+        toast.present();
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\j_vxi\Desktop\Financeiro\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Inserir</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="NavConfirg()">\n\n        <ion-icon name="settings"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-refresher (ionRefresh)="doRefresh($event)"></ion-refresher>\n\n  <div class="main-content" (swipe)="swipe($event)">\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row> \n\n        <ion-item>\n\n            <ion-label fixed>Local: </ion-label>\n\n            <ion-input text-right clearInput="true" autocomplete="on"  value="" [(ngModel)]="compras.title"></ion-input>\n\n          </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item>\n\n          <ion-label fixed>Valor:</ion-label>\n\n          <ion-input  text-right type="number" clearInput="true" value="" #b  [(ngModel)]="compras.payload"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n    \n\n    <ion-row>\n\n      <ion-item (press)="Favorito()"> \n\n        <ion-label #c>Pagamento</ion-label >\n\n        <ion-select  [(ngModel)]="compras.pagamento" interface="popover">\n\n          <ion-option *ngFor="let pagamento of (pagamentos | async)">{{pagamento.title}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item> \n\n          <ion-label>Categoria</ion-label >\n\n          <ion-select [(ngModel)]="compras.categoria" interface="popover" >\n\n            <ion-option *ngFor="let categoria of (categorias | async)" value="{{categoria.title}}">{{categoria.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Divida</ion-label >\n\n          <ion-select [(ngModel)]="divida" interface="popover" >\n\n            <ion-option *ngFor="let pessoa of (Pessoas | async)" value="{{pessoa.title}}">{{pessoa.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Categoria para divisão</ion-label >\n\n          <ion-select [(ngModel)]="categoriaDiv.title" interface="popover" >\n\n            <ion-option *ngFor="let cat of (categorias | async)">{{cat.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label (click)="Mostra()">Data</ion-label>\n\n      <ion-datetime  (click)="Mostra()" displayFormat="DDD - DD/MM/YYYY" [(ngModel)]="DataO"\n\n      dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>\n\n    </ion-item>\n\n\n\n    <ion-row>\n\n      <ion-item no-lines>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <p *ngIf="compras.categoria.includes(\'Divida\')">Quando voce estiver dividindo: Colocar valor cheio e categoria das suas compras. havera divisão sozinha <br>\n\n       Quando a pessoa estiver pagando dividido. VALOR NEGATIVO. pagamento deve ser \'dividido\'\n\n      por enqunato ainda esta com falhas, usar só esses dois jeitos, ajustar o resto na mão</p>\n\n\n\n    <ion-row justify-content-center>\n\n        <button class="btn3" ion-button round outline (click)="ontem(compras)">Ontem</button>\n\n        <button class="btn4" ion-button round (click)="save(compras)">Adicionar</button>\n\n        <button class="btn3" ion-button small round outline (click)="DividaEu(compras)" (press)="DividaDani(compras)" >Dividir</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n<!-------------------------------------- ATALHOS ---------------------------------------------------------------------------->  \n\n\n\n  <div *ngIf = "show == true" class="fadeIn"> \n\n    <ion-grid>\n\n      <ion-row justify-content-center >\n\n        <ion-col col-2 *ngFor="let atalho of (atalhos |  async)">\n\n          <button  class="btn2" ion-button outline (click)="saveAtalho(compras,atalho)" (press)="atalhoPush(atalho)">{{atalho.title}}</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n <!-------------------------------------- GRAFICO ---------------------------------------------------------------------------->  \n\n  <div *ngIf="showGraf == true" class="fadeIn">\n\n    <p class="paragrafo">Gasto Total/Previsto -- {{compras.categoria}} -- {{Arredonda(ArrayTotal[0])}}/{{Arredonda(ArrayTotal[1])}}</p>\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[2])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste1" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste2" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[3])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p justify-content-center class="baseG">{{Arredonda(ArrayTotal[0])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste3" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste4" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[1])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n      <ion-row>\n\n          <ion-col col-1 justify-content-center no-padding>\n\n            <p class="baseG">Mes</p>\n\n          </ion-col>\n\n          <ion-col col-10 justify-content-center>\n\n            <div class="progress3"  (click)=teste(totalM)>\n\n              <div class="determinate1" style="width: 0%" id="testeMes" ></div>\n\n              <div class="determinate2" style="width: 0%" id="testeDia" ></div>\n\n            </div>\n\n          </ion-col>\n\n          <ion-col col-1 no-padding>\n\n            <p class="baseG">{{diaMes}}</p>\n\n          </ion-col>\n\n      </ion-row>\n\n        \n\n\n\n\n\n    \n\n   \n\n\n\n  </div>\n\n</div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\j_vxi\Desktop\Financeiro\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\j_vxi\Desktop\Financeiro\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Inserir</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="NavConfirg()">\n\n        <ion-icon name="settings"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-refresher (ionRefresh)="doRefresh($event)"></ion-refresher>\n\n  <div class="main-content" (swipe)="swipe($event)">\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row> \n\n        <ion-item>\n\n            <ion-label fixed>Local: </ion-label>\n\n            <ion-input text-right clearInput="true" autocomplete="on"  value="" [(ngModel)]="compras.title"></ion-input>\n\n          </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item>\n\n          <ion-label fixed>Valor:</ion-label>\n\n          <ion-input  text-right type="number" clearInput="true" value="" #b  [(ngModel)]="compras.payload"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n    \n\n    <ion-row>\n\n      <ion-item (press)="Favorito()"> \n\n        <ion-label #c>Pagamento</ion-label >\n\n        <ion-select  [(ngModel)]="compras.pagamento" interface="popover">\n\n          <ion-option *ngFor="let pagamento of (pagamentos | async)">{{pagamento.title}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item> \n\n          <ion-label>Categoria</ion-label >\n\n          <ion-select [(ngModel)]="compras.categoria" interface="popover" >\n\n            <ion-option *ngFor="let categoria of (categorias | async)" value="{{categoria.title}}">{{categoria.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Divida</ion-label >\n\n          <ion-select [(ngModel)]="divida" interface="popover" >\n\n            <ion-option *ngFor="let pessoa of (Pessoas | async)" value="{{pessoa.title}}">{{pessoa.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Categoria para divisão</ion-label >\n\n          <ion-select [(ngModel)]="categoriaDiv.title" interface="popover" >\n\n            <ion-option *ngFor="let cat of (categorias | async)">{{cat.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label (click)="Mostra()">Data</ion-label>\n\n      <ion-datetime  (click)="Mostra()" displayFormat="DDD - DD/MM/YYYY" [(ngModel)]="DataO"\n\n      dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>\n\n    </ion-item>\n\n\n\n\n\n    <ion-row>\n\n      <ion-item (press)="AtalhoDivide()">\n\n          <ion-label fixed>Ataho:</ion-label>\n\n          <ion-input  text-right type="text" clearInput="true" value="" #b  [(ngModel)]="atalhoCopia"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-row>\n\n      <ion-item no-lines>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <p *ngIf="compras.categoria.includes(\'Divida\')">Quando voce estiver dividindo: Colocar valor cheio e categoria das suas compras. havera divisão sozinha <br>\n\n       Quando a pessoa estiver pagando dividido. VALOR NEGATIVO. pagamento deve ser \'dividido\'\n\n      por enqunato ainda esta com falhas, usar só esses dois jeitos, ajustar o resto na mão</p>\n\n\n\n    <ion-row justify-content-center>\n\n        <button class="btn3" ion-button round outline (click)="ontem(compras)">Ontem</button>\n\n        <button class="btn4" ion-button round (click)="save(compras)">Adicionar</button>\n\n        <button class="btn3" ion-button small round outline (click)="DividaEu(compras)" (press)="DividaDani(compras)" >Dividir</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n<!-------------------------------------- ATALHOS ---------------------------------------------------------------------------->  \n\n\n\n  <div *ngIf = "show == true" class="fadeIn"> \n\n    <ion-grid>\n\n      <ion-row justify-content-center >\n\n        <ion-col col-2 *ngFor="let atalho of (atalhos |  async)">\n\n          <button  class="btn2" ion-button outline (click)="saveAtalho(compras,atalho)" (press)="atalhoPush(atalho)">{{atalho.title}}</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n <!-------------------------------------- GRAFICO ---------------------------------------------------------------------------->  \n\n  <div *ngIf="showGraf == true" class="fadeIn">\n\n    <p class="paragrafo">Gasto Total/Previsto -- {{compras.categoria}} -- {{Arredonda(ArrayTotal[0])}}/{{Arredonda(ArrayTotal[1])}}</p>\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[2])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste1" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste2" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[3])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p justify-content-center class="baseG">{{Arredonda(ArrayTotal[0])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste3" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste4" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[1])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n      <ion-row>\n\n          <ion-col col-1 justify-content-center no-padding>\n\n            <p class="baseG">Mes</p>\n\n          </ion-col>\n\n          <ion-col col-10 justify-content-center>\n\n            <div class="progress3"  (click)=teste(totalM)>\n\n              <div class="determinate1" style="width: 0%" id="testeMes" ></div>\n\n              <div class="determinate2" style="width: 0%" id="testeDia" ></div>\n\n            </div>\n\n          </ion-col>\n\n          <ion-col col-1 no-padding>\n\n            <p class="baseG">{{diaMes}}</p>\n\n          </ion-col>\n\n      </ion-row>\n\n        \n\n\n\n\n\n    \n\n   \n\n\n\n  </div>\n\n</div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\j_vxi\Desktop\Financeiro\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
     ], HomePage);
     return HomePage;
 }());
@@ -2559,7 +2591,7 @@ var HomePage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddPrevisãoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2635,7 +2667,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2729,7 +2761,7 @@ var EditPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(670);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(436);
@@ -2816,16 +2848,16 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/analise-categoria/analise-categoria.module#AnaliseCategoriaPageModule', name: 'AnaliseCategoriaPage', segment: 'analise-categoria', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-previsão/add-previsão.module#AddPrevisãoPageModule', name: 'AddPrevisãoPage', segment: 'add-previsão', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/analise-categoria/analise-categoria.module#AnaliseCategoriaPageModule', name: 'AnaliseCategoriaPage', segment: 'analise-categoria', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise-pagamento/analise-pagamento.module#AnalisePagamentoPageModule', name: 'AnalisePagamentoPage', segment: 'analise-pagamento', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise/analise.module#AnalisePageModule', name: 'AnalisePage', segment: 'analise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/configurações/configurações.module#ConfiguraçõesPageModule', name: 'ConfiguraçõesPage', segment: 'configurações', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-atalho/edit-atalho.module#EditAtalhoPageModule', name: 'EditAtalhoPage', segment: 'edit-atalho', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-conf/edit-conf.module#EditConfPageModule', name: 'EditConfPage', segment: 'edit-conf', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-atalho/edit-atalho.module#EditAtalhoPageModule', name: 'EditAtalhoPage', segment: 'edit-atalho', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-pagamento/edit-pagamento.module#EditPagamentoPageModule', name: 'EditPagamentoPage', segment: 'edit-pagamento', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'EditPage', segment: 'edit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/graficos/graficos.module#GraficosPageModule', name: 'GraficosPage', segment: 'graficos', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'EditPage', segment: 'edit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/previsão/previsão.module#PrevisãoPageModule', name: 'PrevisãoPage', segment: 'previsão', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -2882,7 +2914,7 @@ var AppModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguraçõesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_conf_edit_conf__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_pagamento_edit_pagamento__ = __webpack_require__(175);
@@ -3424,7 +3456,7 @@ webpackContext.id = 628;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(433);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(434);
