@@ -4,6 +4,8 @@ import { FirebaseServiceProvider } from '../../providers/firebase-service/fireba
 import { ConfiguraçõesPage } from '../configura\u00E7\u00F5es/configura\u00E7\u00F5es';
 import { StatusBar } from '@ionic-native/status-bar';
 import { EditAtalhoPage } from '../edit-atalho/edit-atalho';
+import { ToastController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -80,6 +82,7 @@ export class HomePage {
      public dbService: FirebaseServiceProvider,
      private statusBar: StatusBar,
      public alertCtrl: AlertController,
+     private toastCtrl: ToastController,
      ) {
 
 
@@ -189,6 +192,7 @@ export class HomePage {
     if ( this.categoriaDiv.title != '' && Number(this.compras.payload) > 0){
       this.Dividindo();
       this.compras.title += " -Divido Paguei"
+      this.PopUp()
       this.dbService.save('compras',compras);
       this.compras.categoria = this.categoriaDiv.title
       this.categoriaDiv.title = ''
@@ -198,6 +202,7 @@ export class HomePage {
       this.compras.title += " -Divido Pagou"
       this.compras.pagamento = "Ignorar"
       this.compras.payload = String(Number(this.compras.payload))
+      this.PopUp()
       this.dbService.save('compras',compras);
       this.compras.pagamento = "Divida"
       this.compras.categoria = this.categoriaDiv.title
@@ -205,7 +210,7 @@ export class HomePage {
       this.categoriaDiv.title = ''
     }
 
-
+    this.PopUp()
     this.dbService.save('compras',compras);
     this.previsto = this.dbService.getAll('previsao')
     this.Compras = (this.dbService.getAllQuantidade('compras',100)).map(a => a.reverse());
@@ -220,11 +225,13 @@ export class HomePage {
       var date = new Date
       date.setDate(date.getDate() - 1)
       this.DataO = date.toISOString()
+      this.PopUp()
       this.save(this.compras)
     }
     
 
   save2(teste){
+    this.PopUp()
     this.dbService.save('compras','Janeiro');
   }
 
@@ -289,6 +296,7 @@ export class HomePage {
     compras.categoria = atalho.categoria;
     compras.payload = atalho.gasto;
     compras.pagamento = atalho.pagamento;
+    this.PopUp()
     this.dbService.save('compras',compras)}
     if (atalho.gasto == 0){
     this.MudandoData(this.DataO)
@@ -315,6 +323,7 @@ export class HomePage {
           {
             text: 'Salvar',
             handler: data => {compras.payload = data.valor;
+              this.PopUp()
               this.dbService.save('compras',compras);
               console.log('Saved clicked');
               
@@ -376,6 +385,8 @@ export class HomePage {
     
   }
 
+
+
   
 
 
@@ -432,6 +443,16 @@ export class HomePage {
     this.divida = "Daniela"
     this.categoriaDiv.title = "Date"
     item.payload = -item.payload
+  }
+
+  PopUp(){
+    let texto = "Adicionado " + this.compras.title
+    let toast = this.toastCtrl.create({
+      message: texto,
+      duration: 2000
+      });
+      toast.present();
+  
   }
 
   
