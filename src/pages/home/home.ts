@@ -153,12 +153,19 @@ export class HomePage {
     var local
     var valor
     var categoria
-    var array = this.atalhoCopia.split("/")
-    array[0] = array[0].replace(",",".")
-    this.compras.title = array[1]
-    this.compras.payload = array[0]
-    this.compras.categoria = array[2]
-    
+    var temBarra = false
+    for (var i = 0; i < String(this.atalhoCopia).length; i++) {
+      if(String(this.atalhoCopia).charAt(i)=="/")
+      {temBarra = true};
+    }
+    console.log(temBarra,"asdnuajsndaisndiasm")
+    if (temBarra == true){
+      var array = this.atalhoCopia.split("/")
+      array[0] = array[0].replace(",",".")
+      this.compras.title = array[1]
+      this.compras.payload = array[0]
+      this.compras.categoria = array[2]
+    }
 
   } 
 
@@ -172,6 +179,10 @@ export class HomePage {
       return
     }
     this.compras.pagamento = this.favorito
+  }
+
+  atualiza(){
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
   }
 
   Fav2(){

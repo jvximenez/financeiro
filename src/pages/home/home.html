@@ -5,6 +5,9 @@
       <button ion-button icon-only (click)="NavConfirg()">
         <ion-icon name="settings"></ion-icon>
       </button>
+      <button ion-button icon-only (click)="atualiza()">
+        <ion-icon name="sync"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -75,8 +78,9 @@
 
     <ion-row>
       <ion-item (press)="AtalhoDivide()">
-          <ion-label fixed>Ataho:</ion-label>
-          <ion-input  text-right type="text" clearInput="true" value="" #b  [(ngModel)]="atalhoCopia"></ion-input>
+          <ion-label fixed>Atalho:</ion-label>
+          <ion-input  text-right type="text" clearInput="true" value="" #b 
+          (input)='AtalhoDivide($event.target.value)'  [(ngModel)]="atalhoCopia"></ion-input>
         </ion-item>
     </ion-row>
 
