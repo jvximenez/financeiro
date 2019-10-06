@@ -60,12 +60,17 @@ export class AnalisePage {
   public ArrayDividas;DataO;SomaNuConta
 
   comprasRef;loadedcompraList;compraList
+  previsaoRef;previsaoList
   ///////////////////////////////////////
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public dbService: FirebaseServiceProvider, public alertCtrl: AlertController) {
     this.categorias = this.dbService.getAll('categoria')
-    this.previsto = this.dbService.getAll2('previsao').map(a => a.reverse())
+    this.previsaoRef = firebase.database().ref('previsao').orderByChild("total")
+
+
+    
+
     this.pagamentos = this.dbService.getArray('pagamento')
     this.compras = this.dbService.getAll('compras')
     this.ComprasArray = this.arrayCompras(this.compras);
@@ -108,6 +113,27 @@ export class AnalisePage {
 
     this.compraList = comprasA;
     this.loadedcompraList = comprasA;
+    
+  });
+
+  this.previsaoRef.on('value', comprasList => {
+      
+    let comprasA = [];
+    comprasList.forEach( compra => { 
+      var obj
+      obj = compra.val()
+      obj.key = compra.key
+      obj.total2 =  (Number(Number(obj.ano)*100+Number(obj.mes)))
+      comprasA.push(obj);
+      
+      return false;
+    });
+    comprasA = comprasA.reverse().sort(function(b, a){return a.total2 - b.total2})
+
+    this.previsaoList = comprasA;
+    this.previsaoList.forEach(element => {console.log(element.total2)
+      
+    });
     
   });
 

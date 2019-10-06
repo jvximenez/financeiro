@@ -92,7 +92,7 @@
 
 <!------------------------------------------------------/CARDS DE PREVISÃO-------------------------------------------------------->
   <div class="main-content" (swipe)="swipe($event)">
-    <ion-card *ngFor = "let prev of (previsto | async)">
+    <ion-card *ngFor = "let prev of (previsaoList)">
       <ion-row>
         <ion-col col-10>
           <ion-card-header> {{prev.total}} </ion-card-header>  
