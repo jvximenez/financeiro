@@ -5,6 +5,7 @@ import { ConfiguraçõesPage } from '../configura\u00E7\u00F5es/configura\u00E7\
 import { StatusBar } from '@ionic-native/status-bar';
 import { EditAtalhoPage } from '../edit-atalho/edit-atalho';
 import { ToastController } from 'ionic-angular';
+import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util';
 
 
 @Component({
@@ -124,6 +125,8 @@ export class HomePage {
 
     
   }
+
+  
 
 
   teste(array){
@@ -465,6 +468,60 @@ export class HomePage {
       toast.present();
   
   }
+
+
+
+  Parcelar(compras){
+    {
+      const prompt = this.alertCtrl.create({
+        title: 'Parcelamento em quantas vezes?',
+        
+        inputs: [
+          {
+            name: 'Num',
+            placeholder: 'Número'
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancelar',
+            handler: data => {
+              console.log('Cancel clicked')
+            }
+          },
+          {
+            text: 'Salvar',
+            handler: data => {;
+              compras.payload = compras.payload/Number(data.Num)
+              var cont = 1;
+              var inicio = compras.title
+              while (cont <= Number(data.Num)) {
+                compras.title = inicio + " " + cont+ "/" + data.Num
+                console.log(compras, "aquiii")
+                var dataA = new Date()
+                dataA.setMonth(dataA.getMonth() + cont-1)
+                this.DataO = dataA.toISOString()
+                console.log(compras, "aquiii222")
+                cont +=1
+                this.save(compras);
+                
+                
+
+              }
+
+              
+
+              console.log('Saved clicked');
+              
+            }
+          }
+        ]
+      });
+      prompt.present();
+
+    }
+  }  
+  
 
   
 

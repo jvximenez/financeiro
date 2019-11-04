@@ -119,7 +119,7 @@
         </ion-row>
 
         <div *ngFor = "let keyy of retornaKeys(prev)">
-          <ion-row  *ngIf="keyy != 'key' && keyy != 'total' && keyy != 'ano' && keyy != 'mes' && keyy != 'Ignorar'  && keyy != 'comentario'"  (click)="goToAnalise(prev.total,keyy)">
+          <ion-row  *ngIf="keyy != 'key' && keyy != 'total' && keyy != 'ano' && keyy != 'mes' && keyy != 'Ignorar' && keyy != 'total2'  && keyy != 'comentario'"  (click)="goToAnalise(prev.total,keyy)">
             <ion-col col-5>
                 {{keyy}}
             </ion-col>

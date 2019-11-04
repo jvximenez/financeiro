@@ -518,7 +518,7 @@ export class AnalisePage {
   getCategorias(previsao){
     let a = Object.keys(previsao)
     let array = []
-    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano' && element != "comentario") {array.push(element)} 
+    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano' && element != "comentario" && element != "total2") {array.push(element)} 
     });
     return (array)
     
