@@ -94,7 +94,7 @@ export class PrevisãoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPrevisãoPage');
+    console.log('ionViewDidLoad AddPrevisãoPage!');
   }
 
   criaObjeto(prop){
