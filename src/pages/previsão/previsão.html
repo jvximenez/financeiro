@@ -19,7 +19,7 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor = "let prev of (previsoes | async)" >
+  <ion-card *ngFor = "let prev of (prevList)" >
     <ion-card-header>{{prev.total}}</ion-card-header>
 
     <ion-grid>
@@ -41,7 +41,7 @@
 
     <ion-list>
       <div *ngFor = "let keyy of retornaKeys(prev)">
-        <ion-item *ngIf="keyy != 'key'">
+        <ion-item *ngIf="keyy != 'key' && keyy != 'total2'">
           <ion-label fixed>{{keyy}}</ion-label>
           <ion-input type="text" value="" full no-padding [(ngModel)]="prev[keyy]" class='center'></ion-input>
           <ion-input type="text"  readonly='true' full no-padding value="{{somaCat(keyy,prev.total)}}" class='center' ></ion-input>

@@ -37,29 +37,33 @@ export class PrevisãoPage {
     this.categorias = this.dbService.getAll('categoria');
     this.addPrevisao(this.categorias);
     this.previsoes =  this.dbService.getAll2('previsao').map(a => a.reverse())
+    this.previsoes = this.navParams.get("PrevisaoList")
 
     this.ComprasArray = this.navParams.get('ComprasArray')
 
     this.prevRef = firebase.database().ref('/previsao').orderByChild("total")
+    console.log("entrou")
 
 
 
 
     this.prevRef.on('value', prevList => {
       
+      
       let prevA = [];
       prevList.forEach( prev => { 
         var obj
         obj = prev.val()
         obj.key = prev.key
+        obj.total2 = (Number(Number(obj.ano)*100+Number(obj.mes))) 
         prevA.push(obj);
         
         return false;
       });
-      prevA = prevA.reverse()
+      prevA = prevA.reverse().sort(function(b, a){return a.total2 - b.total2})
   
       this.prevList = prevA;
-      this.loadedprevList = prevA;
+      this.prevList.forEach(element => {console.log(element)})
       
     });
 
@@ -193,7 +197,7 @@ export class PrevisãoPage {
   getCategorias(previsao){
     let a = Object.keys(previsao)
     let array = []
-    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano'&& element != 'comentario') {array.push(element)} 
+    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano'&& element != 'comentario' && element != "total2") {array.push(element)} 
     });
     return (array)
     

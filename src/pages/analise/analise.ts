@@ -131,7 +131,7 @@ export class AnalisePage {
     comprasA = comprasA.reverse().sort(function(b, a){return a.total2 - b.total2})
 
     this.previsaoList = comprasA;
-    this.previsaoList.forEach(element => {console.log(element.total2)
+    this.previsaoList.forEach(element => {console.log(element)
       
     });
     
@@ -487,9 +487,10 @@ export class AnalisePage {
        'compra': this.compras });
     }
 
-  previsao(compras){
+  previsao(compras, prev){
     this.navCtrl.push(PrevisãoPage,
-      {'ComprasArray': compras})
+      {'ComprasArray': compras,
+    'PrevisaoList': prev})
   }
 
 
