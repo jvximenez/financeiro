@@ -107,7 +107,7 @@ export class HomePage {
 
     this.previsto = []
     this.Compras = []
-    this.ArrayTotal =  [0,0,0,0]
+    
 
     this.favorito = this.dbService.getAllQuantidadeO('categorias','numero',1).map(a=> a.reverse())
     this.favorito = this.favorito.forEach(itens => {itens.forEach(item=> {return item.title})})
@@ -208,6 +208,10 @@ export class HomePage {
       this.compras.title += " -Divido Paguei"
       this.PopUp()
       this.dbService.save('compras',compras);
+
+      this.mes = compras.mes
+      this.ano = compras.ano
+
       this.compras.categoria = this.categoriaDiv.title
       this.categoriaDiv.title = ''
     }
@@ -218,6 +222,10 @@ export class HomePage {
       this.compras.payload = String(Number(this.compras.payload))
       this.PopUp()
       this.dbService.save('compras',compras);
+
+      this.mes = compras.mes
+      this.ano = compras.ano
+
       this.compras.pagamento = "Divida"
       this.compras.categoria = this.categoriaDiv.title
       this.compras.payload = String(Number(this.compras.payload) * (-1))
@@ -226,6 +234,10 @@ export class HomePage {
 
     this.PopUp()
     this.dbService.save('compras',compras);
+
+    this.mes = compras.mes
+    this.ano = compras.ano
+
     this.previsto = this.dbService.getAll('previsao')
     this.Compras = (this.dbService.getAllQuantidade('compras',100)).map(a => a.reverse());
     this.ArrayTotal =  this.CriaArrayGrafico(compras.categoria)
@@ -240,7 +252,11 @@ export class HomePage {
       date.setDate(date.getDate() - 1)
       this.DataO = date.toISOString()
       this.PopUp()
+      this.compras.mes = compras.mes
+      this.compras.ano = compras.ano
       this.save(this.compras)
+
+      
     }
     
 
@@ -407,6 +423,8 @@ export class HomePage {
 
   CriaArrayGrafico(Categoria){
     var ArrayT = [0,0,0,0]
+    console.log(this.ano, this.mes)
+
     this.Compras.forEach(itens => itens.forEach (item => {if(item.categoria == Categoria && item.categoria != "Ignorar"  && item.ano == this.ano && Number(item.mes) == Number(this.mes)){ArrayT[0] += Number(item.payload)}}))
     this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ArrayT[1] += Number(item[Categoria])}}))
     this.Compras.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes && item.categoria !="Ignorar"){ArrayT[2] += Number(item.payload)}}))
@@ -504,6 +522,8 @@ export class HomePage {
                 console.log(compras, "aquiii222")
                 cont +=1
                 this.save(compras);
+                this.mes = compras.mes
+                this.ano = compras.ano
                 
                 
 
