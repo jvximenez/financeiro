@@ -131,9 +131,7 @@ export class AnalisePage {
     comprasA = comprasA.reverse().sort(function(b, a){return a.total2 - b.total2})
 
     this.previsaoList = comprasA;
-    this.previsaoList.forEach(element => {console.log(element)
-      
-    });
+    
     
   });
 
@@ -273,7 +271,6 @@ export class AnalisePage {
           handler: data => {
             var a = Number(valor) - Number(data.val)
             a =  Math.round(a*100)/100
-            console.log(a,"olha a aqui")
             this.comprasO.title = "Ajustando"
             this.comprasO.categoria = "Ignorar"
             this.comprasO.pagamento = valor2

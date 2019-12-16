@@ -425,10 +425,10 @@ export class HomePage {
     var ArrayT = [0,0,0,0]
     console.log(this.ano, this.mes)
 
-    this.Compras.forEach(itens => itens.forEach (item => {if(item.categoria == Categoria && item.categoria != "Ignorar"  && item.ano == this.ano && Number(item.mes) == Number(this.mes)){ArrayT[0] += Number(item.payload)}}))
-    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ArrayT[1] += Number(item[Categoria])}}))
-    this.Compras.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes && item.categoria !="Ignorar"){ArrayT[2] += Number(item.payload)}}))
-    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ArrayT[3] += Number(this.retornaArray(item))}}))
+    this.Compras.forEach(itens => itens.forEach (item => { if(item.categoria == Categoria && item.categoria != "Ignorar"  && item.ano == this.ano && Number(item.mes) == Number(this.mes)){console.log(item), ArrayT[0] += Number(item.payload), console.log(ArrayT[0])}}))
+    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){console.log(item), ArrayT[1] += Number(item[Categoria]),console.log(ArrayT[1]) }}))
+    this.Compras.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes && item.categoria !="Ignorar"){ArrayT[2] += Number(item.payload),console.log(ArrayT[2]) }}))
+    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){console.log(item, "aquiii", this.retornaArray(item)), ArrayT[3] += Number(this.retornaArray(item)-Number(item.total2)), console.log(ArrayT[3])}}))
     return (ArrayT)
 
   }
