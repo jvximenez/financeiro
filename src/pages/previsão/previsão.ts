@@ -205,7 +205,7 @@ export class PrevisãoPage {
   ////////////////////////////acabou///////////////////
 
   
-  Cat(categoria,data){
+  somaCat(categoria,data){
     var valorCat = 0 
     this.ComprasArray.forEach(item => {if (String(item[2]) == String(categoria) && 
       String(item[1]) == String(data)) { valorCat = valorCat + Number(item[0])}}
