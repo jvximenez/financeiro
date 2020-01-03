@@ -166,14 +166,45 @@
 
 
   </div>
+
+  <ion-card>
+    <ion-card-header>
+        Categorias
+      </ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <p col-4 col-xl-3>Comida: {{SomaCat("Comida")}}/{{Prev("Comida")}} </p>
+          <p col-2 col-xl-1>{{-SomaCat("Comida")+Prev("Comida")}}</p>
+
+          <p col-4 col-xl-3>Date: {{SomaCat("Date")}}/{{Prev("Date")}}  </p>
+          <p col-2 col-xl-1>{{-SomaCat("Date")+Prev("Date")}}</p>
+
+          <p col-4 col-xl-3>Amigos: {{SomaCat("Amigos")}}/{{Prev("Amigos")}} </p>
+          <p col-2 col-xl-1>{{-SomaCat("Amigos")+Prev("Amigos")}}</p>
+
+          <p col-4 col-xl-3>Combustível: {{SomaCat("Combustivel")}}/{{Prev("Combustivel")}}</p>
+          <p col-2 col-xl-1>{{-SomaCat("Combustivel")+Prev("Combustivel")}}</p>
+
+          <p col-4 col-xl-3>Transporte: {{SomaCat("Transporte")}}/{{Prev("Transporte")}}</p>
+          <p col-2 col-xl-1>{{-SomaCat("Transporte")+Prev("Transporte")}}</p>
+
+          <p col-4 col-xl-3>Extras: {{SomaCat("Extras")}}/{{Prev("Extras")}}</p>
+          <p col-2 col-xl-1>{{-SomaCat("Extras")+Prev("Extras")}}</p>
+
+          <p col-4 col-xl-3>Total: {{SomaCat("Total")}} </p>
+        </ion-row>
+      
+      </ion-grid>
+      
+
+
+</ion-card>
 </div>
 
-<ion-card>
-    <ion-card-header>
-        Card Header
-      </ion-card-header>
-  <h2 padding>Oiii</h2>
-</ion-card>
+
+
+
+
  
 
 </ion-content>

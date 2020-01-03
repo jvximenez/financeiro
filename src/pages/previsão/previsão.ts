@@ -31,6 +31,7 @@ export class PrevisãoPage {
   public ComprasArray;
   prevRef;loadedprevList;prevList
 
+
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbService: FirebaseServiceProvider, public alertCtrl: AlertController) {
@@ -43,6 +44,9 @@ export class PrevisãoPage {
 
     this.prevRef = firebase.database().ref('/previsao').orderByChild("total")
     console.log("entrou")
+
+    
+
 
 
 

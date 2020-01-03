@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { EditAtalhoPage } from '../edit-atalho/edit-atalho';
 import { ToastController } from 'ionic-angular';
 import { dateDataSortValue } from 'ionic-angular/umd/util/datetime-util';
+import firebase from 'firebase';
+
 
 
 @Component({
@@ -79,6 +81,12 @@ export class HomePage {
   public copia = "oi"
   public atalhoCopia
 
+  countryRef;loadedCountryList
+  countryRef2;loadedCountryList2
+
+  total; totalMenos
+
+
   constructor(public navCtrl: NavController,
      public dbService: FirebaseServiceProvider,
      private statusBar: StatusBar,
@@ -104,7 +112,11 @@ export class HomePage {
 
     this.mes = this.AchaMes();
     this.ano = this.achaAno();
-
+    this.total= this.ano*10000+this.mes*100
+    this.totalMenos = this.ano*10000+(this.mes+1)*100
+    console.log(this.total)
+  
+    
     this.previsto = []
     this.Compras = []
     
@@ -119,12 +131,117 @@ export class HomePage {
     this.diaMes = this.daysInMonth(this.Dataa.getMonth()+1,this.Dataa.getFullYear())
 
 
+
+    this.countryRef = firebase.database().ref('/compras').limitToLast(100).orderByChild("total")
+
+    this.countryRef2 = firebase.database().ref('/previsao').limitToLast(30).orderByChild("total")
+
+
+
+    this.countryRef.on('value', countryList => {
+      
+      let countries = [];
+      countryList.forEach( country => { 
+        var obj
+        obj = country.val()
+        obj.key = country.key
+        countries.push(obj);
+        
+        return false;
+      });
+      countries = countries.reverse()
+
+      this.loadedCountryList = countries;
+
+      console.log(this.loadedCountryList)
+
+    });
+
+
+    this.countryRef2.on('value', countryList => {
+      
+      let countries = [];
+      countryList.forEach( country => { 
+        var obj
+        obj = country.val()
+        obj.key = country.key
+        obj.total2 = Number(obj.ano)*10000+Number(obj.mes)*100
+        countries.push(obj);
+        
+        return false;
+      });
+      countries = countries.reverse()
+
+      this.loadedCountryList2 = countries;
+
+      console.log(this.loadedCountryList2)
+
+    });
    
-
-
-
     
   }
+
+  SomaCat(Categoria){
+    var a = 0
+    if (this.loadedCountryList != undefined){
+    this.loadedCountryList.forEach(element => {if (element.categoria == Categoria && element.total > this.total && element.total < this.totalMenos ){
+      a += Number(element.payload)
+    }
+
+    if(Categoria == "Total"){
+      a = 0
+      this.loadedCountryList.forEach(element => {if (element.total > this.total && element.total < this.totalMenos &&
+         element.categoria != "Ignorar"){
+        a += Number(element.payload)
+      }
+
+    })}
+
+      
+    });}
+
+
+    return Math.round(a)
+  }
+
+  retornaArray(prevv){
+    let cat = this.getCategorias(prevv)
+    let a = 0 ;
+    cat.forEach (element => a += (Number(prevv[element])))
+    return a
+
+
+  }
+
+  getCategorias(previsao){
+    let a = Object.keys(previsao)
+    let array = []
+    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano'&& element != 'comentario' && element != "total2") {array.push(element)} 
+    });
+    return (array)
+    
+  }
+
+  Prev(Categoria){
+    var a = 0
+    if (this.loadedCountryList2 != undefined){
+    this.loadedCountryList2.forEach(element => {if (element.total2 == this.total){
+      a += Number(element[Categoria])
+    }
+
+    if(Categoria == "Total"){
+      var b = []
+      this.loadedCountryList2.forEach(element => {if (element.total2 == this.total){
+        element.forEach(element2 => {console.log(element2,"aaaah")})
+          
+ 
+      }})}})}
+
+    return Math.round(a)
+
+  }
+
+
 
   
 
@@ -395,30 +512,6 @@ export class HomePage {
     return (array)
  
   }
-
-  retornaArray(prevv){
-    let cat = this.getCategorias(prevv)
-    console.log(cat)
-    let a = 0 ;
-    cat.forEach (element => a += (Number(prevv[element])))
-    return a
-
-
-  }
-
-  getCategorias(previsao){
-    let a = Object.keys(previsao)
-    let array = []
-    a.forEach(element => { if(element != 'key' && element != 'total' && element != 'mes' && element != 'ano'  && element != 'comentario') {array.push(element)} 
-    });
-    return (array)
-    
-  }
-
-
-
-  
-
 
 
   CriaArrayGrafico(Categoria){

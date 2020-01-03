@@ -8,6 +8,11 @@ page-home {
   border: 1.5px solid;
     }
 
+  .transparente{
+    background-color: transparentize($color: #ffffff, $amount: 1);
+
+  }
+
   .btn2 {
     display:block;
     height: 60px;
