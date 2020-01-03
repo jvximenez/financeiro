@@ -30790,6 +30790,10 @@ page-home .btn {
   border: 1.5px solid;
 }
 
+page-home .transparente {
+  background-color: rgba(255, 255, 255, 0);
+}
+
 page-home .btn2 {
   display: block;
   height: 60px;

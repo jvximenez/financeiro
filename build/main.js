@@ -8,7 +8,7 @@ webpackJsonp([11],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configura_es_configura_es__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configura_es_configura_es__ = __webpack_require__(59);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,79 +229,6 @@ var TodasAsComprasPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePagamentoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_edit__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the AnalisePagamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AnalisePagamentoPage = /** @class */ (function () {
-    function AnalisePagamentoPage(navCtrl, navParams, dbService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.dbService = dbService;
-        this.compras = this.navParams.get('compra');
-        this.dataEnviada = this.navParams.get('data');
-        this.pagamentoEnviado = this.navParams.get('pagamento');
-        this.categorias = this.dbService.getArray('categoria');
-    }
-    AnalisePagamentoPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AnaliseCategoriaPage');
-    };
-    AnalisePagamentoPage.prototype.remover = function (key) {
-        this.dbService.revome('compras', key).then(function (d) { console.log("removido"); });
-    };
-    AnalisePagamentoPage.prototype.icon = function (categoria) {
-        var icon;
-        this.categorias.forEach(function (element) { if (element.title == categoria) {
-            icon = element.icon;
-        } });
-        return icon;
-    };
-    AnalisePagamentoPage.prototype.goToSingle = function (compras) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__edit_edit__["a" /* EditPage */], { 'compras': compras });
-    };
-    AnalisePagamentoPage.prototype.dia = function (dia) {
-        var retornavel;
-        var fileds = dia.split('/');
-        retornavel = fileds[0];
-        return (retornavel);
-    };
-    AnalisePagamentoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-analise-pagamento',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/'<!--\n  Generated template for the AnalisePagamentoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Analise Pagamento</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  \n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n\n    <ion-list>\n      <div >\n        <ion-list-header >{{dataEnviada}}\n        <div *ngFor="let c of (compras | async )"> \n            <ion-item-sliding *ngIf = "([c.ano,c.mes].join(\' - \')) == dataEnviada && c.pagamento == pagamentoEnviado">\n              <ion-item class="altura">\n            <ion-icon item-start [name]=(icon(c.categoria))></ion-icon>\n             <ion-grid>\n              <ion-row>\n                <ion-col col-9>\n                  <h2>{{c.title}}</h2>\n                  <h3>{{c.categoria}} - {{c.pagamento}} </h3>\n                </ion-col>\n                <ion-col col-3>\n                  <ion-row justify-content-center>\n                    <p class="dia">€{{c.payload}}</p>\n                  </ion-row>\n                  <ion-row justify-content-center>\n                    <h2 class ="dia2">{{dia(c.data)}}/{{c.mes}} </h2>\n                  </ion-row>\n                  \n                </ion-col>\n              </ion-row>\n            </ion-grid>\n            \n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="goToSingle(c)" >\n              <ion-icon name="create" ></ion-icon>\n              Edit\n            </button>\n            <button ion-button color="danger"(click)="remover(c)">\n              <ion-icon name="trash"></ion-icon>\n              Del\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n      </ion-list-header>\n      </div>\n    </ion-list>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
-    ], AnalisePagamentoPage);
-    return AnalisePagamentoPage;
-}());
-
-//# sourceMappingURL=analise-pagamento.js.map
-
-/***/ }),
-
-/***/ 170:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnaliseCategoriaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
@@ -371,143 +298,80 @@ var AnaliseCategoriaPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 170:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePagamentoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_edit__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the AnalisePagamentoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AnalisePagamentoPage = /** @class */ (function () {
+    function AnalisePagamentoPage(navCtrl, navParams, dbService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.dbService = dbService;
+        this.compras = this.navParams.get('compra');
+        this.dataEnviada = this.navParams.get('data');
+        this.pagamentoEnviado = this.navParams.get('pagamento');
+        this.categorias = this.dbService.getArray('categoria');
+    }
+    AnalisePagamentoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AnaliseCategoriaPage');
+    };
+    AnalisePagamentoPage.prototype.remover = function (key) {
+        this.dbService.revome('compras', key).then(function (d) { console.log("removido"); });
+    };
+    AnalisePagamentoPage.prototype.icon = function (categoria) {
+        var icon;
+        this.categorias.forEach(function (element) { if (element.title == categoria) {
+            icon = element.icon;
+        } });
+        return icon;
+    };
+    AnalisePagamentoPage.prototype.goToSingle = function (compras) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__edit_edit__["a" /* EditPage */], { 'compras': compras });
+    };
+    AnalisePagamentoPage.prototype.dia = function (dia) {
+        var retornavel;
+        var fileds = dia.split('/');
+        retornavel = fileds[0];
+        return (retornavel);
+    };
+    AnalisePagamentoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-analise-pagamento',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/'<!--\n  Generated template for the AnalisePagamentoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Analise Pagamento</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  \n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n\n    <ion-list>\n      <div >\n        <ion-list-header >{{dataEnviada}}\n        <div *ngFor="let c of (compras | async )"> \n            <ion-item-sliding *ngIf = "([c.ano,c.mes].join(\' - \')) == dataEnviada && c.pagamento == pagamentoEnviado">\n              <ion-item class="altura">\n            <ion-icon item-start [name]=(icon(c.categoria))></ion-icon>\n             <ion-grid>\n              <ion-row>\n                <ion-col col-9>\n                  <h2>{{c.title}}</h2>\n                  <h3>{{c.categoria}} - {{c.pagamento}} </h3>\n                </ion-col>\n                <ion-col col-3>\n                  <ion-row justify-content-center>\n                    <p class="dia">€{{c.payload}}</p>\n                  </ion-row>\n                  <ion-row justify-content-center>\n                    <h2 class ="dia2">{{dia(c.data)}}/{{c.mes}} </h2>\n                  </ion-row>\n                  \n                </ion-col>\n              </ion-row>\n            </ion-grid>\n            \n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="goToSingle(c)" >\n              <ion-icon name="create" ></ion-icon>\n              Edit\n            </button>\n            <button ion-button color="danger"(click)="remover(c)">\n              <ion-icon name="trash"></ion-icon>\n              Del\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n      </ion-list-header>\n      </div>\n    </ion-list>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
+    ], AnalisePagamentoPage);
+    return AnalisePagamentoPage;
+}());
+
+//# sourceMappingURL=analise-pagamento.js.map
+
+/***/ }),
+
 /***/ 171:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditConfPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the EditConfPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var EditConfPage = /** @class */ (function () {
-    function EditConfPage(navCtrl, navParams, firebaseService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.firebaseService = firebaseService;
-        this.categoria = {
-            'title': '',
-            'numero': '',
-            'icon': '',
-        };
-        this.categoria = this.navParams.get('categoria');
-    }
-    EditConfPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditConfPage');
-    };
-    EditConfPage.prototype.atualizar = function (categoria) {
-        var _this = this;
-        this.firebaseService.update('categoria', categoria).then(function (d) {
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
-        });
-    };
-    EditConfPage.prototype.deletar = function (categoria) {
-        var _this = this;
-        this.firebaseService.revome('categoria', categoria).then(function (d) {
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
-        });
-    };
-    EditConfPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-edit-conf',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-conf\edit-conf.html"*/'<!--\n\n  Generated template for the EditConfPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Edição</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-item>\n\n    <ion-icon item-start name={{categoria.icon}}></ion-icon>\n\n    <ion-label>Nome do Item:</ion-label>\n\n    <ion-input type="text" [(ngModel)]="categoria.icon"></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label>Nome da categoria:</ion-label>\n\n    <ion-input type="text" [(ngModel)]="categoria.title"></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label>Número da categoria:</ion-label>\n\n    <ion-input type="number" [(ngModel)]="categoria.numero"></ion-input>\n\n  </ion-item>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-item no-lines></ion-item>\n\n    </ion-row>\n\n    <ion-row justify-content-center >\n\n        <button ion-button round outline class="btn3" col-5 color="danger" (click)="deletar(categoria)">Deletar</button>\n\n    </ion-row>\n\n    <ion-row justify-content-center>\n\n        <button ion-button round outline class="btn3" col-5 (click)="atualizar(categoria)">Atualizar</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n    \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-conf\edit-conf.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
-    ], EditConfPage);
-    return EditConfPage;
-}());
-
-//# sourceMappingURL=edit-conf.js.map
-
-/***/ }),
-
-/***/ 172:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditPagamentoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the EditPagamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var EditPagamentoPage = /** @class */ (function () {
-    function EditPagamentoPage(navCtrl, navParams, firebaseService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.firebaseService = firebaseService;
-        this.pagamento = {
-            'title': '',
-            'numero': '',
-            'icon': '',
-        };
-        this.pagamento = this.navParams.get('pagamento');
-    }
-    EditPagamentoPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditPagamentoPage');
-    };
-    EditPagamentoPage.prototype.atualizar = function (categoria) {
-        var _this = this;
-        this.firebaseService.update('pagamento', categoria).then(function (d) {
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
-        });
-    };
-    EditPagamentoPage.prototype.deletar = function (categoria) {
-        var _this = this;
-        this.firebaseService.revome('pagamento', categoria).then(function (d) {
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
-        });
-    };
-    EditPagamentoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-edit-pagamento',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-pagamento\edit-pagamento.html"*/'<!--\n  Generated template for the EditPagamentoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n      <ion-title>Edição</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-item>\n      <ion-icon item-start name={{pagamento.icon}}></ion-icon>\n      <ion-label>Nome do Item:</ion-label>\n      <ion-input type="text" [(ngModel)]="pagamento.icon"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Nome da categoria:</ion-label>\n      <ion-input type="text" [(ngModel)]="pagamento.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Número da categoria:</ion-label>\n      <ion-input type="number" [(ngModel)]="pagamento.numero"></ion-input>\n    </ion-item>\n    <ion-grid>\n      <ion-row>\n        <ion-item no-lines></ion-item>\n      </ion-row>\n      <ion-row justify-content-center >\n        <button ion-button round col-5 (click)="atualizar(pagamento)">Atualizar</button>\n      </ion-row>\n      <ion-row justify-content-center>\n        <button ion-button round col-5 color="danger" (click)="deletar(pagamento)">Deletar</button>\n      </ion-row>\n    </ion-grid>\n      \n  </ion-content>\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-pagamento\edit-pagamento.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
-    ], EditPagamentoPage);
-    return EditPagamentoPage;
-}());
-
-//# sourceMappingURL=edit-pagamento.js.map
-
-/***/ }),
-
-/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -517,11 +381,11 @@ var EditPagamentoPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__analise_categoria_analise_categoria__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analise_pagamento_analise_pagamento__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__previs_o_previs_o__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__graficos_graficos__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__analise_categoria_analise_categoria__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analise_pagamento_analise_pagamento__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__previs_o_previs_o__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__graficos_graficos__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__analise_divida_analise_divida__ = __webpack_require__(391);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -977,7 +841,7 @@ var AnalisePage = /** @class */ (function () {
     };
     AnalisePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-analise',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise\analise.html"*/'<!--\n\n  Generated template for the AnalisePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<!------------------------------------------------------HEADER-------------------------------------------------------->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Análise </ion-title>\n\n    <ion-buttons end  *ngFor="let f of (ShowTarefas | async) " >\n\n        <button *ngIf="f.title == \'Dividas\'" ion-button icon-only color="{{CorIfTrue(f.check)}}" (click)="ChangeCheckTarefas(f)">\n\n          <ion-icon name="list-box"></ion-icon>\n\n        </button>\n\n      <button ion-button icon-only (click)="atualiza()">\n\n        <ion-icon name="sync"></ion-icon>\n\n      </button>\n\n        <button ion-button icon-only (click)="previsao(ComprasArray, previsaoList)">\n\n          <ion-icon name="clipboard"></ion-icon>\n\n        </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<!------------------------------------------------------/HEADER-------------------------------------------------------->\n\n\n\n\n\n<!------------------------------------------------------Pagamentos-------------------------------------------------------->\n\n<ion-content padding>\n\n  <div *ngFor="let f of (ShowTarefas | async) ">\n\n      <ion-card no-padding *ngIf="f.check == true">\n\n        <ion-card-header> Faturas: </ion-card-header>\n\n        <ion-grid>\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                Local:\n\n              </ion-col>\n\n              <ion-col col-3>\n\n                Valor:\n\n              </ion-col>\n\n            </ion-row>\n\n\n\n\n\n            <ion-row *ngFor="let pagamento of pagamentos" >\n\n              <ion-col col-6 *ngIf=\'pagamento.title != "Ignorar" && pagamento.title != "Divida"\'>\n\n                {{pagamento.title}}\n\n              </ion-col>\n\n              <ion-col col-6 *ngIf=\'pagamento.title != "Ignorar" && pagamento.title != "Divida"\'  (press)="AlteraValor(somaPagDiv2(pagamento.title),pagamento.title)">\n\n                  {{somaPagDiv2(pagamento.title)}}\n\n              </ion-col> \n\n            </ion-row>\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                NuConta Guardado\n\n              </ion-col>\n\n              <ion-col col-6 (press)=\'AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")\'>\n\n                {{+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}\n\n              </ion-col>\n\n            </ion-row>\n\n\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                NuConta Total\n\n              </ion-col>\n\n              <ion-col col-6 (press)=\'AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")\'>\n\n                {{somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}\n\n              </ion-col>\n\n            </ion-row>\n\n\n\n          </ion-grid>\n\n\n\n\n\n\n\n<!------------------------------------------------------/DIVIDAS-------------------------------------------------------->\n\n        <ion-card-header> Dividas </ion-card-header>\n\n        <ion-grid>\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                Pessoa:\n\n              </ion-col>\n\n              <ion-col col-3>\n\n                Gasto:\n\n              </ion-col>\n\n            </ion-row>\n\n            <ion-row *ngFor="let divs of ArrayDividas" (press) =\'goToAnaliseDiv(divs)\'>\n\n                <ion-col col-6>\n\n                    {{divs}}\n\n                  </ion-col>\n\n                  <ion-col col-3>\n\n                    {{somaCatDiv2(divs)}}\n\n                  </ion-col>\n\n            </ion-row>\n\n          </ion-grid>\n\n      </ion-card>\n\n  </div>\n\n\n\n\n\n\n\n\n\n\n\n<!------------------------------------------------------/CARDS DE PREVISÃO-------------------------------------------------------->\n\n  <div class="main-content" (swipe)="swipe($event)">\n\n    <ion-card *ngFor = "let prev of (previsaoList)">\n\n      <ion-row>\n\n        <ion-col col-10>\n\n          <ion-card-header> {{prev.total}} </ion-card-header>  \n\n        </ion-col>\n\n        <ion-col col-2>\n\n        <ion-buttons end>\n\n          <button ion-button icon-only end clear (click)="grafico(prev,prev.total,compras,ComprasArray)">\n\n          <ion-icon name="stats"></ion-icon></button>\n\n        </ion-buttons>\n\n        </ion-col>\n\n      </ion-row>\n\n      \n\n      <ion-grid>\n\n        <ion-row>\n\n          <ion-col col-5 class="titulo">\n\n            Categoria\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            Previsto\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            Gasto\n\n          </ion-col>\n\n        </ion-row>\n\n\n\n        <div *ngFor = "let keyy of retornaKeys(prev)">\n\n          <ion-row  *ngIf="keyy != \'key\' && keyy != \'total\' && keyy != \'ano\' && keyy != \'mes\' && keyy != \'Ignorar\' && keyy != \'total2\'  && keyy != \'comentario\'"  (click)="goToAnalise(prev.total,keyy)">\n\n            <ion-col col-5>\n\n                {{keyy}}\n\n            </ion-col>\n\n            <ion-col col-3 class=\'center\'>\n\n                {{prev[keyy]}}\n\n            </ion-col>\n\n            <ion-col col-3 col-3 class=\'center\'>\n\n                {{somaCat3(keyy,prev.total)}}\n\n            </ion-col>\n\n            <ion-col col-1 no-padding >\n\n              <button no-padding small class=\'center\' ion-button clear color="{{Analisa(prev[keyy],somaCat(keyy,prev.total),\'color\')}}">\n\n                <ion-icon name="{{Analisa(prev[keyy],somaCat(keyy,prev.total),\'icone\')}}"> </ion-icon>\n\n              </button>\n\n            </ion-col>\n\n          </ion-row>\n\n        </div>\n\n\n\n        <ion-row class="bold">\n\n            <ion-col col-5 class="bold">\n\n              Total\n\n            </ion-col>\n\n            <ion-col col-3 class=\'center\'>\n\n              {{retornaArray(prev)}}  \n\n            </ion-col>\n\n            <ion-col col-3 class=\'center\'>\n\n              {{somaTotal(prev.total)}}\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row class="bold">\n\n          <ion-col col-5 class="bold">\n\n            Mensal/Reserva\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            {{retornaArray(prev)-(somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total)))  }}\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            {{somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total))}}\n\n          </ion-col>\n\n        </ion-row>\n\n\n\n        <ion-row class="bold">\n\n          <ion-col col-5 class="bold">\n\n            Receita\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            {{-somaReceita(prev.total)}}\n\n          </ion-col>\n\n        </ion-row>\n\n\n\n        <button ion-button clear col-3 padding small (click)="VerMais()">Ver Mais</button>\n\n        <div *ngIf="showM == true">\n\n        <ion-row>\n\n          <ion-col>\n\n            Comentário: {{prev.comentario}}\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngFor="let pagamento of pagamentos" (click)="goToAnalisePag(prev.total,pagamento.title)">\n\n            <ion-col col-5>\n\n              {{pagamento.title}}\n\n            </ion-col>\n\n            <ion-col col-3  class=\'center\'>\n\n                {{somaPagamento(pagamento.title, prev.total)}}\n\n            </ion-col>\n\n            <ion-col>\n\n            </ion-col>\n\n        </ion-row>\n\n        </div>\n\n      </ion-grid>\n\n    \n\n      <!------------------------------------------------------/SOMAS DA SEMANA-------------------------------------------------------->\n\n      <ion-grid>\n\n        <ion-row>\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 1</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(1,prev.total)}}</ion-row>\n\n          </ion-col>\n\n\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 2</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(2,prev.total)}}</ion-row>\n\n          </ion-col>\n\n\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 3</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(3,prev.total)}}</ion-row>\n\n          </ion-col>\n\n\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 4</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(4,prev.total)}}</ion-row>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n      \n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise\analise.html"*/,
+            selector: 'page-analise',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise\analise.html"*/'<!--\n\n  Generated template for the AnalisePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<!------------------------------------------------------HEADER-------------------------------------------------------->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Análise </ion-title>\n\n    <ion-buttons end  *ngFor="let f of (ShowTarefas | async) " >\n\n        <button *ngIf="f.title == \'Dividas\'" ion-button icon-only color="{{CorIfTrue(f.check)}}" (click)="ChangeCheckTarefas(f)">\n\n          <ion-icon name="list-box"></ion-icon>\n\n        </button>\n\n      <button ion-button icon-only (click)="atualiza()">\n\n        <ion-icon name="sync"></ion-icon>\n\n      </button>\n\n        <button ion-button icon-only (click)="previsao(ComprasArray, previsaoList)">\n\n          <ion-icon name="clipboard"></ion-icon>\n\n        </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n<!------------------------------------------------------/HEADER-------------------------------------------------------->\n\n\n\n\n\n<!------------------------------------------------------Pagamentos-------------------------------------------------------->\n\n<ion-content padding>\n\n  <div *ngFor="let f of (ShowTarefas | async) ">\n\n      <ion-card no-padding *ngIf="f.check == true">\n\n        <ion-card-header> Faturas: </ion-card-header>\n\n        <ion-grid>\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                Local:\n\n              </ion-col>\n\n              <ion-col col-3>\n\n                Valor:\n\n              </ion-col>\n\n            </ion-row>\n\n\n\n\n\n            <ion-row *ngFor="let pagamento of pagamentos" >\n\n              <ion-col col-6 *ngIf=\'pagamento.title != "Ignorar" && pagamento.title != "Divida"\'>\n\n                {{pagamento.title}}\n\n              </ion-col>\n\n              <ion-col col-6 *ngIf=\'pagamento.title != "Ignorar" && pagamento.title != "Divida"\'  (press)="AlteraValor(somaPagDiv2(pagamento.title),pagamento.title)">\n\n                  {{somaPagDiv2(pagamento.title)}}\n\n              </ion-col> \n\n            </ion-row>\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                NuConta Guardado\n\n              </ion-col>\n\n              <ion-col col-6 (press)=\'AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")\'>\n\n                {{+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}\n\n              </ion-col>\n\n            </ion-row>\n\n\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                NuConta Total\n\n              </ion-col>\n\n              <ion-col col-4 (press)=\'AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")\'>\n\n                {{somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}\n\n              </ion-col>\n\n            </ion-row>\n\n\n\n          </ion-grid>\n\n\n\n\n\n\n\n<!------------------------------------------------------/DIVIDAS-------------------------------------------------------->\n\n        <ion-card-header> Dividas </ion-card-header>\n\n        <ion-grid>\n\n            <ion-row>\n\n              <ion-col col-6>\n\n                Pessoa:\n\n              </ion-col>\n\n              <ion-col col-3>\n\n                Gasto:\n\n              </ion-col>\n\n            </ion-row>\n\n            <ion-row *ngFor="let divs of ArrayDividas" (press) =\'goToAnaliseDiv(divs)\'>\n\n                <ion-col col-6>\n\n                    {{divs}}\n\n                  </ion-col>\n\n                  <ion-col col-3>\n\n                    {{somaCatDiv2(divs)}}\n\n                  </ion-col>\n\n            </ion-row>\n\n          </ion-grid>\n\n      </ion-card>\n\n  </div>\n\n\n\n\n\n\n\n\n\n\n\n<!------------------------------------------------------/CARDS DE PREVISÃO-------------------------------------------------------->\n\n  <div class="main-content" (swipe)="swipe($event)">\n\n    <ion-card *ngFor = "let prev of (previsaoList)">\n\n      <ion-row>\n\n        <ion-col col-10>\n\n          <ion-card-header> {{prev.total}} </ion-card-header>  \n\n        </ion-col>\n\n        <ion-col col-2>\n\n        <ion-buttons end>\n\n          <button ion-button icon-only end clear (click)="grafico(prev,prev.total,compras,ComprasArray)">\n\n          <ion-icon name="stats"></ion-icon></button>\n\n        </ion-buttons>\n\n        </ion-col>\n\n      </ion-row>\n\n      \n\n      <ion-grid>\n\n        <ion-row>\n\n          <ion-col col-5 class="titulo">\n\n            Categoria\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            Previsto\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            Gasto\n\n          </ion-col>\n\n        </ion-row>\n\n\n\n        <div *ngFor = "let keyy of retornaKeys(prev)">\n\n          <ion-row  *ngIf="keyy != \'key\' && keyy != \'total\' && keyy != \'ano\' && keyy != \'mes\' && keyy != \'Ignorar\' && keyy != \'total2\'  && keyy != \'comentario\'"  (click)="goToAnalise(prev.total,keyy)">\n\n            <ion-col col-5>\n\n                {{keyy}}\n\n            </ion-col>\n\n            <ion-col col-3 class=\'center\'>\n\n                {{prev[keyy]}}\n\n            </ion-col>\n\n            <ion-col col-3 col-3 class=\'center\'>\n\n                {{somaCat3(keyy,prev.total)}}\n\n            </ion-col>\n\n            <ion-col col-1 no-padding >\n\n              <button no-padding small class=\'center\' ion-button clear color="{{Analisa(prev[keyy],somaCat(keyy,prev.total),\'color\')}}">\n\n                <ion-icon name="{{Analisa(prev[keyy],somaCat(keyy,prev.total),\'icone\')}}"> </ion-icon>\n\n              </button>\n\n            </ion-col>\n\n          </ion-row>\n\n        </div>\n\n\n\n        <ion-row class="bold">\n\n            <ion-col col-5 class="bold">\n\n              Total\n\n            </ion-col>\n\n            <ion-col col-3 class=\'center\'>\n\n              {{retornaArray(prev)}}  \n\n            </ion-col>\n\n            <ion-col col-3 class=\'center\'>\n\n              {{somaTotal(prev.total)}}\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row class="bold">\n\n          <ion-col col-5 class="bold">\n\n            Mensal/Reserva\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            {{retornaArray(prev)-(somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total)))  }}\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            {{somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total))}}\n\n          </ion-col>\n\n        </ion-row>\n\n\n\n        <ion-row class="bold">\n\n          <ion-col col-5 class="bold">\n\n            Receita\n\n          </ion-col>\n\n          <ion-col col-3 class=\'center\'>\n\n            {{-somaReceita(prev.total)}}\n\n          </ion-col>\n\n        </ion-row>\n\n\n\n        <button ion-button clear col-3 padding small (click)="VerMais()">Ver Mais</button>\n\n        <div *ngIf="showM == true">\n\n        <ion-row>\n\n          <ion-col>\n\n            Comentário: {{prev.comentario}}\n\n          </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngFor="let pagamento of pagamentos" (click)="goToAnalisePag(prev.total,pagamento.title)">\n\n            <ion-col col-5>\n\n              {{pagamento.title}}\n\n            </ion-col>\n\n            <ion-col col-3  class=\'center\'>\n\n                {{somaPagamento(pagamento.title, prev.total)}}\n\n            </ion-col>\n\n            <ion-col>\n\n            </ion-col>\n\n        </ion-row>\n\n        </div>\n\n      </ion-grid>\n\n    \n\n      <!------------------------------------------------------/SOMAS DA SEMANA-------------------------------------------------------->\n\n      <ion-grid>\n\n        <ion-row>\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 1</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(1,prev.total)}}</ion-row>\n\n          </ion-col>\n\n\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 2</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(2,prev.total)}}</ion-row>\n\n          </ion-col>\n\n\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 3</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(3,prev.total)}}</ion-row>\n\n          </ion-col>\n\n\n\n          <ion-col col-3 justify-content-center>\n\n            <ion-row style="height:20px" justify-content-center>Sem 4</ion-row>\n\n            <ion-row justify-content-center>{{somaSemana(4,prev.total)}}</ion-row>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-grid>\n\n      \n\n    </ion-card>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise\analise.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -989,7 +853,7 @@ var AnalisePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 174:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -997,7 +861,7 @@ var AnalisePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1169,7 +1033,7 @@ var PrevisãoPage = /** @class */ (function () {
         return (array);
     };
     ////////////////////////////acabou///////////////////
-    PrevisãoPage.prototype.Cat = function (categoria, data) {
+    PrevisãoPage.prototype.somaCat = function (categoria, data) {
         var valorCat = 0;
         this.ComprasArray.forEach(function (item) {
             if (String(item[2]) == String(categoria) &&
@@ -1192,7 +1056,7 @@ var PrevisãoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 175:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1201,7 +1065,7 @@ var PrevisãoPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chart_js__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_chart_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1541,6 +1405,142 @@ var GraficosPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 174:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditConfPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the EditConfPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EditConfPage = /** @class */ (function () {
+    function EditConfPage(navCtrl, navParams, firebaseService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.firebaseService = firebaseService;
+        this.categoria = {
+            'title': '',
+            'numero': '',
+            'icon': '',
+        };
+        this.categoria = this.navParams.get('categoria');
+    }
+    EditConfPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditConfPage');
+    };
+    EditConfPage.prototype.atualizar = function (categoria) {
+        var _this = this;
+        this.firebaseService.update('categoria', categoria).then(function (d) {
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
+        });
+    };
+    EditConfPage.prototype.deletar = function (categoria) {
+        var _this = this;
+        this.firebaseService.revome('categoria', categoria).then(function (d) {
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
+        });
+    };
+    EditConfPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-edit-conf',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-conf\edit-conf.html"*/'<!--\n\n  Generated template for the EditConfPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Edição</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-item>\n\n    <ion-icon item-start name={{categoria.icon}}></ion-icon>\n\n    <ion-label>Nome do Item:</ion-label>\n\n    <ion-input type="text" [(ngModel)]="categoria.icon"></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label>Nome da categoria:</ion-label>\n\n    <ion-input type="text" [(ngModel)]="categoria.title"></ion-input>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-label>Número da categoria:</ion-label>\n\n    <ion-input type="number" [(ngModel)]="categoria.numero"></ion-input>\n\n  </ion-item>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-item no-lines></ion-item>\n\n    </ion-row>\n\n    <ion-row justify-content-center >\n\n        <button ion-button round outline class="btn3" col-5 color="danger" (click)="deletar(categoria)">Deletar</button>\n\n    </ion-row>\n\n    <ion-row justify-content-center>\n\n        <button ion-button round outline class="btn3" col-5 (click)="atualizar(categoria)">Atualizar</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n    \n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-conf\edit-conf.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
+    ], EditConfPage);
+    return EditConfPage;
+}());
+
+//# sourceMappingURL=edit-conf.js.map
+
+/***/ }),
+
+/***/ 175:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditPagamentoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the EditPagamentoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EditPagamentoPage = /** @class */ (function () {
+    function EditPagamentoPage(navCtrl, navParams, firebaseService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.firebaseService = firebaseService;
+        this.pagamento = {
+            'title': '',
+            'numero': '',
+            'icon': '',
+        };
+        this.pagamento = this.navParams.get('pagamento');
+    }
+    EditPagamentoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditPagamentoPage');
+    };
+    EditPagamentoPage.prototype.atualizar = function (categoria) {
+        var _this = this;
+        this.firebaseService.update('pagamento', categoria).then(function (d) {
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
+        });
+    };
+    EditPagamentoPage.prototype.deletar = function (categoria) {
+        var _this = this;
+        this.firebaseService.revome('pagamento', categoria).then(function (d) {
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__configura_es_configura_es__["a" /* ConfiguraçõesPage */]);
+        });
+    };
+    EditPagamentoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-edit-pagamento',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-pagamento\edit-pagamento.html"*/'<!--\n  Generated template for the EditPagamentoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar>\n      <ion-title>Edição</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-item>\n      <ion-icon item-start name={{pagamento.icon}}></ion-icon>\n      <ion-label>Nome do Item:</ion-label>\n      <ion-input type="text" [(ngModel)]="pagamento.icon"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Nome da categoria:</ion-label>\n      <ion-input type="text" [(ngModel)]="pagamento.title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Número da categoria:</ion-label>\n      <ion-input type="number" [(ngModel)]="pagamento.numero"></ion-input>\n    </ion-item>\n    <ion-grid>\n      <ion-row>\n        <ion-item no-lines></ion-item>\n      </ion-row>\n      <ion-row justify-content-center >\n        <button ion-button round col-5 (click)="atualizar(pagamento)">Atualizar</button>\n      </ion-row>\n      <ion-row justify-content-center>\n        <button ion-button round col-5 color="danger" (click)="deletar(pagamento)">Deletar</button>\n      </ion-row>\n    </ion-grid>\n      \n  </ion-content>\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\edit-pagamento\edit-pagamento.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
+    ], EditPagamentoPage);
+    return EditPagamentoPage;
+}());
+
+//# sourceMappingURL=edit-pagamento.js.map
+
+/***/ }),
+
 /***/ 208:
 /***/ (function(module, exports) {
 
@@ -1684,23 +1684,23 @@ var map = {
 		10
 	],
 	"../pages/analise-categoria/analise-categoria.module": [
-		683,
+		682,
 		9
 	],
 	"../pages/analise-pagamento/analise-pagamento.module": [
-		682,
+		683,
 		8
 	],
 	"../pages/analise/analise.module": [
-		686,
+		684,
 		7
 	],
 	"../pages/configurações/configurações.module": [
-		684,
+		685,
 		6
 	],
 	"../pages/edit-atalho/edit-atalho.module": [
-		685,
+		686,
 		5
 	],
 	"../pages/edit-conf/edit-conf.module": [
@@ -1752,7 +1752,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__todas_as_compras_todas_as_compras__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2054,7 +2054,7 @@ var AnaliseDividaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(436);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__analise_analise__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__analise_analise__ = __webpack_require__(171);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2098,7 +2098,7 @@ var TabsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__todas_as_compras_todas_as_compras__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2386,9 +2386,11 @@ var AboutPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configura_es_configura_es__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configura_es_configura_es__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_atalho_edit_atalho__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2405,8 +2407,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomePage = /** @class */ (function () {
     function HomePage(navCtrl, dbService, statusBar, alertCtrl, toastCtrl) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.dbService = dbService;
         this.statusBar = statusBar;
@@ -2446,6 +2450,9 @@ var HomePage = /** @class */ (function () {
         this.compras.data = this.Criacao(0);
         this.mes = this.AchaMes();
         this.ano = this.achaAno();
+        this.total = this.ano * 10000 + this.mes * 100;
+        this.totalMenos = this.ano * 10000 + (this.mes + 1) * 100;
+        console.log(this.total);
         this.previsto = [];
         this.Compras = [];
         this.favorito = this.dbService.getAllQuantidadeO('categorias', 'numero', 1).map(function (a) { return a.reverse(); });
@@ -2454,6 +2461,35 @@ var HomePage = /** @class */ (function () {
         this.Pessoas = this.dbService.getAll2('configuracoes/pessoas');
         console.log(this.Pessoas);
         this.diaMes = this.daysInMonth(this.Dataa.getMonth() + 1, this.Dataa.getFullYear());
+        this.countryRef = __WEBPACK_IMPORTED_MODULE_6_firebase___default.a.database().ref('/compras').limitToLast(100).orderByChild("total");
+        this.countryRef2 = __WEBPACK_IMPORTED_MODULE_6_firebase___default.a.database().ref('/previsao').limitToLast(30).orderByChild("total");
+        this.countryRef.on('value', function (countryList) {
+            var countries = [];
+            countryList.forEach(function (country) {
+                var obj;
+                obj = country.val();
+                obj.key = country.key;
+                countries.push(obj);
+                return false;
+            });
+            countries = countries.reverse();
+            _this.loadedCountryList = countries;
+            console.log(_this.loadedCountryList);
+        });
+        this.countryRef2.on('value', function (countryList) {
+            var countries = [];
+            countryList.forEach(function (country) {
+                var obj;
+                obj = country.val();
+                obj.key = country.key;
+                obj.total2 = Number(obj.ano) * 10000 + Number(obj.mes) * 100;
+                countries.push(obj);
+                return false;
+            });
+            countries = countries.reverse();
+            _this.loadedCountryList2 = countries;
+            console.log(_this.loadedCountryList2);
+        });
     }
     HomePage.prototype.doRefresh = function (refresher) {
         this.show = !this.show;
@@ -2463,6 +2499,63 @@ var HomePage = /** @class */ (function () {
     };
     HomePage.prototype.Arredonda = function (item) {
         return Math.round(item);
+    };
+    HomePage.prototype.SomaCat = function (Categoria) {
+        var _this = this;
+        var a = 0;
+        if (this.loadedCountryList != undefined) {
+            this.loadedCountryList.forEach(function (element) {
+                if (element.categoria == Categoria && element.total > _this.total && element.total < _this.totalMenos) {
+                    a += Number(element.payload);
+                }
+                if (Categoria == "Total") {
+                    a = 0;
+                    _this.loadedCountryList.forEach(function (element) {
+                        if (element.total > _this.total && element.total < _this.totalMenos &&
+                            element.categoria != "Ignorar") {
+                            a += Number(element.payload);
+                        }
+                    });
+                }
+            });
+        }
+        return Math.round(a);
+    };
+    HomePage.prototype.retornaArray = function (prevv) {
+        var cat = this.getCategorias(prevv);
+        var a = 0;
+        cat.forEach(function (element) { return a += (Number(prevv[element])); });
+        return a;
+    };
+    HomePage.prototype.getCategorias = function (previsao) {
+        var a = Object.keys(previsao);
+        var array = [];
+        a.forEach(function (element) {
+            if (element != 'key' && element != 'total' && element != 'mes' && element != 'ano' && element != 'comentario' && element != "total2") {
+                array.push(element);
+            }
+        });
+        return (array);
+    };
+    HomePage.prototype.Prev = function (Categoria) {
+        var _this = this;
+        var a = 0;
+        if (this.loadedCountryList2 != undefined) {
+            this.loadedCountryList2.forEach(function (element) {
+                if (element.total2 == _this.total) {
+                    a += Number(element[Categoria]);
+                }
+                if (Categoria == "Total") {
+                    var b = [];
+                    _this.loadedCountryList2.forEach(function (element) {
+                        if (element.total2 == _this.total) {
+                            element.forEach(function (element2) { console.log(element2, "aaaah"); });
+                        }
+                    });
+                }
+            });
+        }
+        return Math.round(a);
     };
     HomePage.prototype.teste = function (array) {
         var data = new Date;
@@ -2686,23 +2779,6 @@ var HomePage = /** @class */ (function () {
         compras.forEach(function (itens) { return itens.forEach(function (item) { linha = [], linha.push(item.payload, [item.ano, item.mes].join(' - '), item.categoria, item.pagamento, item.total), array.push(linha); }); });
         return (array);
     };
-    HomePage.prototype.retornaArray = function (prevv) {
-        var cat = this.getCategorias(prevv);
-        console.log(cat);
-        var a = 0;
-        cat.forEach(function (element) { return a += (Number(prevv[element])); });
-        return a;
-    };
-    HomePage.prototype.getCategorias = function (previsao) {
-        var a = Object.keys(previsao);
-        var array = [];
-        a.forEach(function (element) {
-            if (element != 'key' && element != 'total' && element != 'mes' && element != 'ano' && element != 'comentario') {
-                array.push(element);
-            }
-        });
-        return (array);
-    };
     HomePage.prototype.CriaArrayGrafico = function (Categoria) {
         var _this = this;
         var ArrayT = [0, 0, 0, 0];
@@ -2813,7 +2889,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Inserir</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="NavConfirg()">\n\n        <ion-icon name="settings"></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only (click)="atualiza()">\n\n        <ion-icon name="sync"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-refresher (ionRefresh)="doRefresh($event)"></ion-refresher>\n\n  <div class="main-content" (swipe)="swipe($event)">\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row> \n\n        <ion-item>\n\n            <ion-label fixed>Local: </ion-label>\n\n            <ion-input text-right clearInput="true" autocomplete="on"  value="" [(ngModel)]="compras.title"></ion-input>\n\n          </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item>\n\n          <ion-label fixed>Valor:</ion-label>\n\n          <ion-input  text-right type="number" clearInput="true" value="" #b  [(ngModel)]="compras.payload"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n    \n\n    <ion-row>\n\n      <ion-item (press)="Favorito()"> \n\n        <ion-label #c>Pagamento</ion-label >\n\n        <ion-select  [(ngModel)]="compras.pagamento" interface="popover">\n\n          <ion-option *ngFor="let pagamento of (pagamentos | async)">{{pagamento.title}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item> \n\n          <ion-label>Categoria</ion-label >\n\n          <ion-select [(ngModel)]="compras.categoria" interface="popover" >\n\n            <ion-option *ngFor="let categoria of (categorias | async)" value="{{categoria.title}}">{{categoria.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Divida</ion-label >\n\n          <ion-select [(ngModel)]="divida" interface="popover" >\n\n            <ion-option *ngFor="let pessoa of (Pessoas | async)" value="{{pessoa.title}}">{{pessoa.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Categoria para divisão</ion-label >\n\n          <ion-select [(ngModel)]="categoriaDiv.title" interface="popover" >\n\n            <ion-option *ngFor="let cat of (categorias | async)">{{cat.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label (click)="Mostra()">Data</ion-label>\n\n      <ion-datetime  (click)="Mostra()" displayFormat="DDD - DD/MM/YYYY" [(ngModel)]="DataO"\n\n      dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>\n\n    </ion-item>\n\n\n\n\n\n    <ion-row>\n\n      <ion-item (press)="AtalhoDivide()">\n\n          <ion-label fixed>Atalho:</ion-label>\n\n          <ion-input  text-right type="text" clearInput="true" value="" #b \n\n          (input)=\'AtalhoDivide($event.target.value)\'  [(ngModel)]="atalhoCopia"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-row>\n\n      <ion-item no-lines>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <p *ngIf="compras.categoria.includes(\'Divida\')">Quando voce estiver dividindo: Colocar valor cheio e categoria das suas compras. havera divisão sozinha <br>\n\n       Quando a pessoa estiver pagando dividido. VALOR NEGATIVO. pagamento deve ser \'dividido\'\n\n      por enqunato ainda esta com falhas, usar só esses dois jeitos, ajustar o resto na mão</p>\n\n\n\n    <ion-row justify-content-center>\n\n        <button class="btn3" ion-button round outline (click)="ontem(compras)">Ontem</button>\n\n        <button class="btn4" ion-button round (click)="save(compras)">Adicionar</button>\n\n        <button class="btn3" ion-button small round outline (click)="DividaEu(compras)" (press)="DividaDani(compras)" >Dividir</button>\n\n    </ion-row>\n\n    <ion-row justify-content-center>\n\n      <button class="btn3" ion-button round outline (click)="Parcelar(compras)">Parcelar</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n<!-------------------------------------- ATALHOS ---------------------------------------------------------------------------->  \n\n\n\n  <div *ngIf = "show == true" class="fadeIn"> \n\n    <ion-grid>\n\n      <ion-row justify-content-center >\n\n        <ion-col col-2 *ngFor="let atalho of (atalhos |  async)">\n\n          <button  class="btn2" ion-button outline (click)="saveAtalho(compras,atalho)" (press)="atalhoPush(atalho)">{{atalho.title}}</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n <!-------------------------------------- GRAFICO ---------------------------------------------------------------------------->  \n\n  <div *ngIf="showGraf == true" class="fadeIn">\n\n    <p class="paragrafo">Gasto Total/Previsto -- {{compras.categoria}} -- {{Arredonda(ArrayTotal[0])}}/{{Arredonda(ArrayTotal[1])}}</p>\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[2])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste1" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste2" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[3])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p justify-content-center class="baseG">{{Arredonda(ArrayTotal[0])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste3" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste4" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[1])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n      <ion-row>\n\n          <ion-col col-1 justify-content-center no-padding>\n\n            <p class="baseG">Mes</p>\n\n          </ion-col>\n\n          <ion-col col-10 justify-content-center>\n\n            <div class="progress3"  (click)=teste(totalM)>\n\n              <div class="determinate1" style="width: 0%" id="testeMes" ></div>\n\n              <div class="determinate2" style="width: 0%" id="testeDia" ></div>\n\n            </div>\n\n          </ion-col>\n\n          <ion-col col-1 no-padding>\n\n            <p class="baseG">{{diaMes}}</p>\n\n          </ion-col>\n\n      </ion-row>\n\n\n\n\n\n  </div>\n\n</div>\n\n\n\n<ion-card>\n\n    <ion-card-header>\n\n        Card Header\n\n      </ion-card-header>\n\n  <h2 padding>Oiii</h2>\n\n</ion-card>\n\n \n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Inserir</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="NavConfirg()">\n\n        <ion-icon name="settings"></ion-icon>\n\n      </button>\n\n      <button ion-button icon-only (click)="atualiza()">\n\n        <ion-icon name="sync"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-refresher (ionRefresh)="doRefresh($event)"></ion-refresher>\n\n  <div class="main-content" (swipe)="swipe($event)">\n\n\n\n\n\n  <ion-grid>\n\n    <ion-row> \n\n        <ion-item>\n\n            <ion-label fixed>Local: </ion-label>\n\n            <ion-input text-right clearInput="true" autocomplete="on"  value="" [(ngModel)]="compras.title"></ion-input>\n\n          </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item>\n\n          <ion-label fixed>Valor:</ion-label>\n\n          <ion-input  text-right type="number" clearInput="true" value="" #b  [(ngModel)]="compras.payload"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n    \n\n    <ion-row>\n\n      <ion-item (press)="Favorito()"> \n\n        <ion-label #c>Pagamento</ion-label >\n\n        <ion-select  [(ngModel)]="compras.pagamento" interface="popover">\n\n          <ion-option *ngFor="let pagamento of (pagamentos | async)">{{pagamento.title}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-item> \n\n          <ion-label>Categoria</ion-label >\n\n          <ion-select [(ngModel)]="compras.categoria" interface="popover" >\n\n            <ion-option *ngFor="let categoria of (categorias | async)" value="{{categoria.title}}">{{categoria.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Divida</ion-label >\n\n          <ion-select [(ngModel)]="divida" interface="popover" >\n\n            <ion-option *ngFor="let pessoa of (Pessoas | async)" value="{{pessoa.title}}">{{pessoa.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n    <ion-row *ngIf="compras.categoria.includes(\'Divida\')">\n\n      <ion-item> \n\n          <ion-label>Categoria para divisão</ion-label >\n\n          <ion-select [(ngModel)]="categoriaDiv.title" interface="popover" >\n\n            <ion-option *ngFor="let cat of (categorias | async)">{{cat.title}}</ion-option>\n\n          </ion-select>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-item>\n\n      <ion-label (click)="Mostra()">Data</ion-label>\n\n      <ion-datetime  (click)="Mostra()" displayFormat="DDD - DD/MM/YYYY" [(ngModel)]="DataO"\n\n      dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>\n\n    </ion-item>\n\n\n\n\n\n    <ion-row>\n\n      <ion-item (press)="AtalhoDivide()">\n\n          <ion-label fixed>Atalho:</ion-label>\n\n          <ion-input  text-right type="text" clearInput="true" value="" #b \n\n          (input)=\'AtalhoDivide($event.target.value)\'  [(ngModel)]="atalhoCopia"></ion-input>\n\n        </ion-item>\n\n    </ion-row>\n\n\n\n\n\n    <ion-row>\n\n      <ion-item no-lines>\n\n      </ion-item>\n\n    </ion-row>\n\n\n\n    <p *ngIf="compras.categoria.includes(\'Divida\')">Quando voce estiver dividindo: Colocar valor cheio e categoria das suas compras. havera divisão sozinha <br>\n\n       Quando a pessoa estiver pagando dividido. VALOR NEGATIVO. pagamento deve ser \'dividido\'\n\n      por enqunato ainda esta com falhas, usar só esses dois jeitos, ajustar o resto na mão</p>\n\n\n\n    <ion-row justify-content-center>\n\n        <button class="btn3" ion-button round outline (click)="ontem(compras)">Ontem</button>\n\n        <button class="btn4" ion-button round (click)="save(compras)">Adicionar</button>\n\n        <button class="btn3" ion-button small round outline (click)="DividaEu(compras)" (press)="DividaDani(compras)" >Dividir</button>\n\n    </ion-row>\n\n    <ion-row justify-content-center>\n\n      <button class="btn3" ion-button round outline (click)="Parcelar(compras)">Parcelar</button>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n<!-------------------------------------- ATALHOS ---------------------------------------------------------------------------->  \n\n\n\n  <div *ngIf = "show == true" class="fadeIn"> \n\n    <ion-grid>\n\n      <ion-row justify-content-center >\n\n        <ion-col col-2 *ngFor="let atalho of (atalhos |  async)">\n\n          <button  class="btn2" ion-button outline (click)="saveAtalho(compras,atalho)" (press)="atalhoPush(atalho)">{{atalho.title}}</button>\n\n        </ion-col>\n\n      </ion-row>\n\n    </ion-grid>\n\n  </div>\n\n\n\n <!-------------------------------------- GRAFICO ---------------------------------------------------------------------------->  \n\n  <div *ngIf="showGraf == true" class="fadeIn">\n\n    <p class="paragrafo">Gasto Total/Previsto -- {{compras.categoria}} -- {{Arredonda(ArrayTotal[0])}}/{{Arredonda(ArrayTotal[1])}}</p>\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[2])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste1" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste2" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[3])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-row>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p justify-content-center class="baseG">{{Arredonda(ArrayTotal[0])}}</p>\n\n      </ion-col>\n\n      <ion-col col-10 justify-content-center>\n\n        <div class="progress"  (click)=teste(totalM)>\n\n          <div class="determinate1" style="width: 0%" id="teste3" ></div>\n\n          <div class="determinate2" style="width: 0%" id="teste4" ></div>\n\n        </div>\n\n      </ion-col>\n\n      <ion-col col-1 justify-content-center no-padding>\n\n        <p class="baseG">{{Arredonda(ArrayTotal[1])}}</p>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n      <ion-row>\n\n          <ion-col col-1 justify-content-center no-padding>\n\n            <p class="baseG">Mes</p>\n\n          </ion-col>\n\n          <ion-col col-10 justify-content-center>\n\n            <div class="progress3"  (click)=teste(totalM)>\n\n              <div class="determinate1" style="width: 0%" id="testeMes" ></div>\n\n              <div class="determinate2" style="width: 0%" id="testeDia" ></div>\n\n            </div>\n\n          </ion-col>\n\n          <ion-col col-1 no-padding>\n\n            <p class="baseG">{{diaMes}}</p>\n\n          </ion-col>\n\n      </ion-row>\n\n\n\n\n\n  </div>\n\n\n\n  <ion-item no-lines class="Transparente"> </ion-item>\n\n  <ion-item no-lines class="Transparente"> </ion-item>\n\n  <ion-item no-lines class="Transparente"> </ion-item>\n\n  <ion-item no-lines class="Transparente"> </ion-item>\n\n\n\n\n\n\n\n  <ion-card>\n\n    <ion-card-header>\n\n        Categorias\n\n      </ion-card-header>\n\n      <ion-grid>\n\n        <ion-row>\n\n          <p col-4 col-xl-3>Comida: {{SomaCat("Comida")}}/{{Prev("Comida")}} </p>\n\n          <p col-2 col-xl-1>{{-SomaCat("Comida")+Prev("Comida")}}</p>\n\n\n\n          <p col-4 col-xl-3>Date: {{SomaCat("Date")}}/{{Prev("Date")}}  </p>\n\n          <p col-2 col-xl-1>{{-SomaCat("Date")+Prev("Date")}}</p>\n\n\n\n          <p col-4 col-xl-3>Amigos: {{SomaCat("Amigos")}}/{{Prev("Amigos")}} </p>\n\n          <p col-2 col-xl-1>{{-SomaCat("Amigos")+Prev("Amigos")}}</p>\n\n\n\n          <p col-4 col-xl-3>Combustível: {{SomaCat("Combustivel")}}/{{Prev("Combustivel")}}</p>\n\n          <p col-2 col-xl-1>{{-SomaCat("Combustivel")+Prev("Combustivel")}}</p>\n\n\n\n          <p col-4 col-xl-3>Transporte: {{SomaCat("Transporte")}}/{{Prev("Transporte")}}</p>\n\n          <p col-2 col-xl-1>{{-SomaCat("Transporte")+Prev("Transporte")}}</p>\n\n\n\n          <p col-4 col-xl-3>Extras: {{SomaCat("Extras")}}/{{Prev("Extras")}}</p>\n\n          <p col-2 col-xl-1>{{-SomaCat("Extras")+Prev("Extras")}}</p>\n\n\n\n          <p col-4 col-xl-3>Total: {{SomaCat("Total")}} </p>\n\n        </ion-row>\n\n      \n\n      </ion-grid>\n\n      \n\n\n\n\n\n</ion-card>\n\n</div>\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */],
@@ -3016,17 +3092,17 @@ var EditPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_database__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_toast_service_toast_service__ = __webpack_require__(678);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_edit_edit__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_configura_es_configura_es__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_edit_conf_edit_conf__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_pagamento_edit_pagamento__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_analise_analise__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_configura_es_configura_es__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_edit_conf_edit_conf__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_pagamento_edit_pagamento__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_analise_analise__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_charts__ = __webpack_require__(679);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_ng2_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_analise_categoria_analise_categoria__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_analise_pagamento_analise_pagamento__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_previs_o_previs_o__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_analise_categoria_analise_categoria__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_analise_pagamento_analise_pagamento__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_previs_o_previs_o__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_add_previs_o_add_previs_o__ = __webpack_require__(437);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_graficos_graficos__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_graficos_graficos__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_edit_atalho_edit_atalho__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_todas_as_compras_todas_as_compras__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_analise_divida_analise_divida__ = __webpack_require__(391);
@@ -3092,11 +3168,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/add-previsão/add-previsão.module#AddPrevisãoPageModule', name: 'AddPrevisãoPage', segment: 'add-previsão', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/analise-pagamento/analise-pagamento.module#AnalisePagamentoPageModule', name: 'AnalisePagamentoPage', segment: 'analise-pagamento', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise-categoria/analise-categoria.module#AnaliseCategoriaPageModule', name: 'AnaliseCategoriaPage', segment: 'analise-categoria', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/analise-pagamento/analise-pagamento.module#AnalisePagamentoPageModule', name: 'AnalisePagamentoPage', segment: 'analise-pagamento', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/analise/analise.module#AnalisePageModule', name: 'AnalisePage', segment: 'analise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/configurações/configurações.module#ConfiguraçõesPageModule', name: 'ConfiguraçõesPage', segment: 'configurações', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-atalho/edit-atalho.module#EditAtalhoPageModule', name: 'EditAtalhoPage', segment: 'edit-atalho', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/analise/analise.module#AnalisePageModule', name: 'AnalisePage', segment: 'analise', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-conf/edit-conf.module#EditConfPageModule', name: 'EditConfPage', segment: 'edit-conf', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-pagamento/edit-pagamento.module#EditPagamentoPageModule', name: 'EditPagamentoPage', segment: 'edit-pagamento', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/graficos/graficos.module#GraficosPageModule', name: 'GraficosPage', segment: 'graficos', priority: 'low', defaultHistory: [] },
@@ -3151,7 +3227,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3159,8 +3235,8 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_conf_edit_conf__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_pagamento_edit_pagamento__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_conf_edit_conf__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_pagamento_edit_pagamento__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_atalho_edit_atalho__ = __webpack_require__(100);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
