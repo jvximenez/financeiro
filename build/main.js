@@ -302,79 +302,6 @@ var AnaliseCategoriaPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePagamentoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_edit__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the AnalisePagamentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AnalisePagamentoPage = /** @class */ (function () {
-    function AnalisePagamentoPage(navCtrl, navParams, dbService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.dbService = dbService;
-        this.compras = this.navParams.get('compra');
-        this.dataEnviada = this.navParams.get('data');
-        this.pagamentoEnviado = this.navParams.get('pagamento');
-        this.categorias = this.dbService.getArray('categoria');
-    }
-    AnalisePagamentoPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AnaliseCategoriaPage');
-    };
-    AnalisePagamentoPage.prototype.remover = function (key) {
-        this.dbService.revome('compras', key).then(function (d) { console.log("removido"); });
-    };
-    AnalisePagamentoPage.prototype.icon = function (categoria) {
-        var icon;
-        this.categorias.forEach(function (element) { if (element.title == categoria) {
-            icon = element.icon;
-        } });
-        return icon;
-    };
-    AnalisePagamentoPage.prototype.goToSingle = function (compras) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__edit_edit__["a" /* EditPage */], { 'compras': compras });
-    };
-    AnalisePagamentoPage.prototype.dia = function (dia) {
-        var retornavel;
-        var fileds = dia.split('/');
-        retornavel = fileds[0];
-        return (retornavel);
-    };
-    AnalisePagamentoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-analise-pagamento',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/'<!--\n  Generated template for the AnalisePagamentoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Analise Pagamento</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  \n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n\n    <ion-list>\n      <div >\n        <ion-list-header >{{dataEnviada}}\n        <div *ngFor="let c of (compras | async )"> \n            <ion-item-sliding *ngIf = "([c.ano,c.mes].join(\' - \')) == dataEnviada && c.pagamento == pagamentoEnviado">\n              <ion-item class="altura">\n            <ion-icon item-start [name]=(icon(c.categoria))></ion-icon>\n             <ion-grid>\n              <ion-row>\n                <ion-col col-9>\n                  <h2>{{c.title}}</h2>\n                  <h3>{{c.categoria}} - {{c.pagamento}} </h3>\n                </ion-col>\n                <ion-col col-3>\n                  <ion-row justify-content-center>\n                    <p class="dia">€{{c.payload}}</p>\n                  </ion-row>\n                  <ion-row justify-content-center>\n                    <h2 class ="dia2">{{dia(c.data)}}/{{c.mes}} </h2>\n                  </ion-row>\n                  \n                </ion-col>\n              </ion-row>\n            </ion-grid>\n            \n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="goToSingle(c)" >\n              <ion-icon name="create" ></ion-icon>\n              Edit\n            </button>\n            <button ion-button color="danger"(click)="remover(c)">\n              <ion-icon name="trash"></ion-icon>\n              Del\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n      </ion-list-header>\n      </div>\n    </ion-list>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
-    ], AnalisePagamentoPage);
-    return AnalisePagamentoPage;
-}());
-
-//# sourceMappingURL=analise-pagamento.js.map
-
-/***/ }),
-
-/***/ 171:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
@@ -382,7 +309,7 @@ var AnalisePagamentoPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__analise_categoria_analise_categoria__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analise_pagamento_analise_pagamento__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__analise_pagamento_analise_pagamento__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__previs_o_previs_o__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__graficos_graficos__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_firebase__ = __webpack_require__(58);
@@ -850,6 +777,79 @@ var AnalisePage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=analise.js.map
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalisePagamentoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_edit__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__ = __webpack_require__(21);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the AnalisePagamentoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AnalisePagamentoPage = /** @class */ (function () {
+    function AnalisePagamentoPage(navCtrl, navParams, dbService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.dbService = dbService;
+        this.compras = this.navParams.get('compra');
+        this.dataEnviada = this.navParams.get('data');
+        this.pagamentoEnviado = this.navParams.get('pagamento');
+        this.categorias = this.dbService.getArray('categoria');
+    }
+    AnalisePagamentoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AnaliseCategoriaPage');
+    };
+    AnalisePagamentoPage.prototype.remover = function (key) {
+        this.dbService.revome('compras', key).then(function (d) { console.log("removido"); });
+    };
+    AnalisePagamentoPage.prototype.icon = function (categoria) {
+        var icon;
+        this.categorias.forEach(function (element) { if (element.title == categoria) {
+            icon = element.icon;
+        } });
+        return icon;
+    };
+    AnalisePagamentoPage.prototype.goToSingle = function (compras) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__edit_edit__["a" /* EditPage */], { 'compras': compras });
+    };
+    AnalisePagamentoPage.prototype.dia = function (dia) {
+        var retornavel;
+        var fileds = dia.split('/');
+        retornavel = fileds[0];
+        return (retornavel);
+    };
+    AnalisePagamentoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-analise-pagamento',template:/*ion-inline-start:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/'<!--\n  Generated template for the AnalisePagamentoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Analise Pagamento</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  \n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n\n    <ion-list>\n      <div >\n        <ion-list-header >{{dataEnviada}}\n        <div *ngFor="let c of (compras | async )"> \n            <ion-item-sliding *ngIf = "([c.ano,c.mes].join(\' - \')) == dataEnviada && c.pagamento == pagamentoEnviado">\n              <ion-item class="altura">\n            <ion-icon item-start [name]=(icon(c.categoria))></ion-icon>\n             <ion-grid>\n              <ion-row>\n                <ion-col col-9>\n                  <h2>{{c.title}}</h2>\n                  <h3>{{c.categoria}} - {{c.pagamento}} </h3>\n                </ion-col>\n                <ion-col col-3>\n                  <ion-row justify-content-center>\n                    <p class="dia">€{{c.payload}}</p>\n                  </ion-row>\n                  <ion-row justify-content-center>\n                    <h2 class ="dia2">{{dia(c.data)}}/{{c.mes}} </h2>\n                  </ion-row>\n                  \n                </ion-col>\n              </ion-row>\n            </ion-grid>\n            \n          </ion-item>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="goToSingle(c)" >\n              <ion-icon name="create" ></ion-icon>\n              Edit\n            </button>\n            <button ion-button color="danger"(click)="remover(c)">\n              <ion-icon name="trash"></ion-icon>\n              Del\n            </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </div>\n      </ion-list-header>\n      </div>\n    </ion-list>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\j_vxi\Documents\Programas\Financeiro\src\pages\analise-pagamento\analise-pagamento.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_service_firebase_service__["a" /* FirebaseServiceProvider */]])
+    ], AnalisePagamentoPage);
+    return AnalisePagamentoPage;
+}());
+
+//# sourceMappingURL=analise-pagamento.js.map
 
 /***/ }),
 
@@ -1688,35 +1688,35 @@ var map = {
 		9
 	],
 	"../pages/analise-pagamento/analise-pagamento.module": [
-		683,
+		684,
 		8
 	],
 	"../pages/analise/analise.module": [
-		684,
+		683,
 		7
 	],
 	"../pages/configurações/configurações.module": [
-		685,
+		687,
 		6
 	],
 	"../pages/edit-atalho/edit-atalho.module": [
-		686,
+		685,
 		5
 	],
 	"../pages/edit-conf/edit-conf.module": [
-		687,
+		686,
 		4
 	],
 	"../pages/edit-pagamento/edit-pagamento.module": [
-		688,
+		689,
 		3
 	],
 	"../pages/edit/edit.module": [
-		691,
+		688,
 		2
 	],
 	"../pages/graficos/graficos.module": [
-		689,
+		691,
 		1
 	],
 	"../pages/previsão/previsão.module": [
@@ -2054,7 +2054,7 @@ var AnaliseDividaPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(436);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__analise_analise__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__analise_analise__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2452,14 +2452,11 @@ var HomePage = /** @class */ (function () {
         this.ano = this.achaAno();
         this.total = this.ano * 10000 + this.mes * 100;
         this.totalMenos = this.ano * 10000 + (this.mes + 1) * 100;
-        console.log(this.total);
         this.previsto = [];
         this.Compras = [];
         this.favorito = this.dbService.getAllQuantidadeO('categorias', 'numero', 1).map(function (a) { return a.reverse(); });
         this.favorito = this.favorito.forEach(function (itens) { itens.forEach(function (item) { return item.title; }); });
-        console.log(this.favorito, "sadasdas");
         this.Pessoas = this.dbService.getAll2('configuracoes/pessoas');
-        console.log(this.Pessoas);
         this.diaMes = this.daysInMonth(this.Dataa.getMonth() + 1, this.Dataa.getFullYear());
         this.countryRef = __WEBPACK_IMPORTED_MODULE_6_firebase___default.a.database().ref('/compras').limitToLast(100).orderByChild("total");
         this.countryRef2 = __WEBPACK_IMPORTED_MODULE_6_firebase___default.a.database().ref('/previsao').limitToLast(30).orderByChild("total");
@@ -2488,7 +2485,6 @@ var HomePage = /** @class */ (function () {
             });
             countries = countries.reverse();
             _this.loadedCountryList2 = countries;
-            console.log(_this.loadedCountryList2);
         });
     }
     HomePage.prototype.doRefresh = function (refresher) {
@@ -2549,7 +2545,7 @@ var HomePage = /** @class */ (function () {
                     var b = [];
                     _this.loadedCountryList2.forEach(function (element) {
                         if (element.total2 == _this.total) {
-                            element.forEach(function (element2) { console.log(element2, "aaaah"); });
+                            element.forEach(function (element2) { console.log("aaaah"); });
                         }
                     });
                 }
@@ -2586,7 +2582,6 @@ var HomePage = /** @class */ (function () {
             }
             ;
         }
-        console.log(temBarra, "asdnuajsndaisndiasm");
         if (temBarra == true) {
             var array = this.atalhoCopia.split("/");
             array[0] = array[0].replace(",", ".");
@@ -2619,9 +2614,7 @@ var HomePage = /** @class */ (function () {
         var _this = this;
         this.MudandoData(this.DataO);
         if (this.compras.categoria == "Divida") {
-            console.log(this.divida, "div aqui");
             this.compras.categoria = "Divida - " + this.divida;
-            console.log(this.compras.categoria, "cat completa aqui");
         }
         if (this.categoriaDiv.title != '' && Number(this.compras.payload) > 0) {
             this.Dividindo();
@@ -2782,18 +2775,17 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.CriaArrayGrafico = function (Categoria) {
         var _this = this;
         var ArrayT = [0, 0, 0, 0];
-        console.log(this.ano, this.mes);
         this.Compras.forEach(function (itens) { return itens.forEach(function (item) { if (item.categoria == Categoria && item.categoria != "Ignorar" && item.ano == _this.ano && Number(item.mes) == Number(_this.mes)) {
-            console.log(item), ArrayT[0] += Number(item.payload), console.log(ArrayT[0]);
+            ArrayT[0] += Number(item.payload);
         } }); });
         this.previsto.forEach(function (itens) { return itens.forEach(function (item) { if (item.ano == _this.ano && item.mes == _this.mes) {
-            console.log(item), ArrayT[1] += Number(item[Categoria]), console.log(ArrayT[1]);
+            ArrayT[1] += Number(item[Categoria]);
         } }); });
         this.Compras.forEach(function (itens) { return itens.forEach(function (item) { if (item.ano == _this.ano && item.mes == _this.mes && item.categoria != "Ignorar") {
-            ArrayT[2] += Number(item.payload), console.log(ArrayT[2]);
+            ArrayT[2] += Number(item.payload);
         } }); });
         this.previsto.forEach(function (itens) { return itens.forEach(function (item) { if (item.ano == _this.ano && item.mes == _this.mes) {
-            console.log(item, "aquiii", _this.retornaArray(item)), ArrayT[3] += Number(_this.retornaArray(item) - Number(item.total2)), console.log(ArrayT[3]);
+            ArrayT[3] += Number(_this.retornaArray(item));
         } }); });
         return (ArrayT);
     };
@@ -2803,17 +2795,14 @@ var HomePage = /** @class */ (function () {
         return data;
     };
     HomePage.prototype.Mostra = function () {
-        console.log(this.DataO);
         this.MudandoData(this.DataO);
     };
     HomePage.prototype.MudandoData = function (valor) {
         var fields = valor.split('-');
         var dia = fields[2].split('T');
-        console.log(fields, dia);
         this.compras.ano = fields[0];
         this.compras.mes = String(Number(fields[1]));
         this.compras.total = String(Number(Number(this.compras.ano) * 10000 + Number(this.compras.mes) * 100 + Number(dia[0])));
-        console.log(this.compras.total);
         var data = new Date();
         var hora = data.getHours();
         var min = data.getMinutes();
@@ -2869,11 +2858,9 @@ var HomePage = /** @class */ (function () {
                             var inicio = compras.title;
                             while (cont <= Number(data.Num)) {
                                 compras.title = inicio + " " + cont + "/" + data.Num;
-                                console.log(compras, "aquiii");
                                 var dataA = new Date();
                                 dataA.setMonth(dataA.getMonth() + cont - 1);
                                 _this.DataO = dataA.toISOString();
-                                console.log(compras, "aquiii222");
                                 cont += 1;
                                 _this.save(compras);
                                 _this.mes = compras.mes;
@@ -3095,11 +3082,11 @@ var EditPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_configura_es_configura_es__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_edit_conf_edit_conf__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_pagamento_edit_pagamento__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_analise_analise__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_analise_analise__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_charts__ = __webpack_require__(679);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_ng2_charts__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_analise_categoria_analise_categoria__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_analise_pagamento_analise_pagamento__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_analise_pagamento_analise_pagamento__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_previs_o_previs_o__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_add_previs_o_add_previs_o__ = __webpack_require__(437);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_graficos_graficos__ = __webpack_require__(173);
@@ -3169,15 +3156,15 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/add-previsão/add-previsão.module#AddPrevisãoPageModule', name: 'AddPrevisãoPage', segment: 'add-previsão', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise-categoria/analise-categoria.module#AnaliseCategoriaPageModule', name: 'AnaliseCategoriaPage', segment: 'analise-categoria', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/analise-pagamento/analise-pagamento.module#AnalisePagamentoPageModule', name: 'AnalisePagamentoPage', segment: 'analise-pagamento', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/analise/analise.module#AnalisePageModule', name: 'AnalisePage', segment: 'analise', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/configurações/configurações.module#ConfiguraçõesPageModule', name: 'ConfiguraçõesPage', segment: 'configurações', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/analise-pagamento/analise-pagamento.module#AnalisePagamentoPageModule', name: 'AnalisePagamentoPage', segment: 'analise-pagamento', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-atalho/edit-atalho.module#EditAtalhoPageModule', name: 'EditAtalhoPage', segment: 'edit-atalho', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-conf/edit-conf.module#EditConfPageModule', name: 'EditConfPage', segment: 'edit-conf', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/configurações/configurações.module#ConfiguraçõesPageModule', name: 'ConfiguraçõesPage', segment: 'configurações', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'EditPage', segment: 'edit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-pagamento/edit-pagamento.module#EditPagamentoPageModule', name: 'EditPagamentoPage', segment: 'edit-pagamento', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/graficos/graficos.module#GraficosPageModule', name: 'GraficosPage', segment: 'graficos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/previsão/previsão.module#PrevisãoPageModule', name: 'PrevisãoPage', segment: 'previsão', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'EditPage', segment: 'edit', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/graficos/graficos.module#GraficosPageModule', name: 'GraficosPage', segment: 'graficos', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_18_ng2_charts__["ChartsModule"],
