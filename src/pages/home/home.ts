@@ -114,7 +114,6 @@ export class HomePage {
     this.ano = this.achaAno();
     this.total= this.ano*10000+this.mes*100
     this.totalMenos = this.ano*10000+(this.mes+1)*100
-    console.log(this.total)
   
     
     this.previsto = []
@@ -123,11 +122,8 @@ export class HomePage {
 
     this.favorito = this.dbService.getAllQuantidadeO('categorias','numero',1).map(a=> a.reverse())
     this.favorito = this.favorito.forEach(itens => {itens.forEach(item=> {return item.title})})
-    console.log(this.favorito,"sadasdas")
-
 
     this.Pessoas = this.dbService.getAll2('configuracoes/pessoas')
-    console.log(this.Pessoas)
     this.diaMes = this.daysInMonth(this.Dataa.getMonth()+1,this.Dataa.getFullYear())
 
 
@@ -174,7 +170,6 @@ export class HomePage {
 
       this.loadedCountryList2 = countries;
 
-      console.log(this.loadedCountryList2)
 
     });
    
@@ -232,7 +227,7 @@ export class HomePage {
     if(Categoria == "Total"){
       var b = []
       this.loadedCountryList2.forEach(element => {if (element.total2 == this.total){
-        element.forEach(element2 => {console.log(element2,"aaaah")})
+        element.forEach(element2 => {console.log("aaaah")})
           
  
       }})}})}
@@ -278,7 +273,6 @@ export class HomePage {
       if(String(this.atalhoCopia).charAt(i)=="/")
       {temBarra = true};
     }
-    console.log(temBarra,"asdnuajsndaisndiasm")
     if (temBarra == true){
       var array = this.atalhoCopia.split("/")
       array[0] = array[0].replace(",",".")
@@ -316,9 +310,7 @@ export class HomePage {
   save(compras){
     this.MudandoData(this.DataO)
     if (this.compras.categoria == "Divida"){
-      console.log(this.divida, "div aqui")
       this.compras.categoria = "Divida - " + this.divida
-      console.log(this.compras.categoria,"cat completa aqui")
     }
     if ( this.categoriaDiv.title != '' && Number(this.compras.payload) > 0){
       this.Dividindo();
@@ -516,12 +508,10 @@ export class HomePage {
 
   CriaArrayGrafico(Categoria){
     var ArrayT = [0,0,0,0]
-    console.log(this.ano, this.mes)
-
-    this.Compras.forEach(itens => itens.forEach (item => { if(item.categoria == Categoria && item.categoria != "Ignorar"  && item.ano == this.ano && Number(item.mes) == Number(this.mes)){console.log(item), ArrayT[0] += Number(item.payload), console.log(ArrayT[0])}}))
-    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){console.log(item), ArrayT[1] += Number(item[Categoria]),console.log(ArrayT[1]) }}))
-    this.Compras.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes && item.categoria !="Ignorar"){ArrayT[2] += Number(item.payload),console.log(ArrayT[2]) }}))
-    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){console.log(item, "aquiii", this.retornaArray(item)), ArrayT[3] += Number(this.retornaArray(item)-Number(item.total2)), console.log(ArrayT[3])}}))
+    this.Compras.forEach(itens => itens.forEach (item => { if(item.categoria == Categoria && item.categoria != "Ignorar"  && item.ano == this.ano && Number(item.mes) == Number(this.mes)){ArrayT[0] += Number(item.payload)}}))
+    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ ArrayT[1] += Number(item[Categoria])}}))
+    this.Compras.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes && item.categoria !="Ignorar"){ArrayT[2] += Number(item.payload)}}))
+    this.previsto.forEach(itens => itens.forEach (item => {if(item.ano == this.ano && item.mes == this.mes){ ArrayT[3] += Number(this.retornaArray(item))}}))
     return (ArrayT)
 
   }
@@ -534,18 +524,15 @@ export class HomePage {
   }
 
   Mostra(){
-    console.log(this.DataO)
     this.MudandoData(this.DataO)
   }
 
   MudandoData(valor){
     var fields = valor.split('-')
     var dia = fields[2].split('T')
-    console.log(fields,dia)
     this.compras.ano =  fields[0]
     this.compras.mes =  String(Number(fields[1]))
     this.compras.total =  String(Number(Number(this.compras.ano)*10000 + Number(this.compras.mes)*100 + Number(dia[0])));
-    console.log(this.compras.total)
     var data = new Date();
     var hora = data.getHours();
     var min = data.getMinutes();
@@ -608,11 +595,9 @@ export class HomePage {
               var inicio = compras.title
               while (cont <= Number(data.Num)) {
                 compras.title = inicio + " " + cont+ "/" + data.Num
-                console.log(compras, "aquiii")
                 var dataA = new Date()
                 dataA.setMonth(dataA.getMonth() + cont-1)
                 this.DataO = dataA.toISOString()
-                console.log(compras, "aquiii222")
                 cont +=1
                 this.save(compras);
                 this.mes = compras.mes
