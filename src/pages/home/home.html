@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-header>
   <ion-navbar>
     <ion-title>Inserir</ion-title>
@@ -171,4 +172,222 @@
 
   </div>
 </div>
+=======
+<ion-header>
+  <ion-navbar>
+    <ion-title>Inserir</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="NavConfirg()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="atualiza()">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher (ionRefresh)="doRefresh($event)"></ion-refresher>
+  <div class="main-content" (swipe)="swipe($event)">
+
+
+  <ion-grid>
+    <ion-row> 
+        <ion-item>
+            <ion-label fixed>Local: </ion-label>
+            <ion-input text-right clearInput="true" autocomplete="on"  value="" [(ngModel)]="compras.title"></ion-input>
+          </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item>
+          <ion-label fixed>Valor:</ion-label>
+          <ion-input  text-right type="number" clearInput="true" value="" #b  [(ngModel)]="compras.payload"></ion-input>
+        </ion-item>
+    </ion-row>
+    
+    <ion-row>
+      <ion-item (press)="Favorito()"> 
+        <ion-label #c>Pagamento</ion-label >
+        <ion-select  [(ngModel)]="compras.pagamento" interface="popover">
+          <ion-option *ngFor="let pagamento of (pagamentos | async)">{{pagamento.title}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item> 
+          <ion-label>Categoria</ion-label >
+          <ion-select [(ngModel)]="compras.categoria" interface="popover" >
+            <ion-option *ngFor="let categoria of (categorias | async)" value="{{categoria.title}}">{{categoria.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-row>
+
+    <ion-row *ngIf="compras.categoria.includes('Divida')">
+      <ion-item> 
+          <ion-label>Divida</ion-label >
+          <ion-select [(ngModel)]="divida" interface="popover" >
+            <ion-option *ngFor="let pessoa of (Pessoas | async)" value="{{pessoa.title}}">{{pessoa.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-row>
+
+    <ion-row *ngIf="compras.categoria.includes('Divida')">
+      <ion-item> 
+          <ion-label>Categoria para divisão</ion-label >
+          <ion-select [(ngModel)]="categoriaDiv.title" interface="popover" >
+            <ion-option *ngFor="let cat of (categorias | async)">{{cat.title}}</ion-option>
+          </ion-select>
+        </ion-item>
+    </ion-row>
+
+
+    <ion-item>
+      <ion-label (click)="Mostra()">Data</ion-label>
+      <ion-datetime  (click)="Mostra()" displayFormat="DDD - DD/MM/YYYY" [(ngModel)]="DataO"
+      dayShortNames="Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado"></ion-datetime>
+    </ion-item>
+
+
+    <ion-row>
+      <ion-item (press)="AtalhoDivide()">
+          <ion-label fixed>Atalho:</ion-label>
+          <ion-input  text-right type="text" clearInput="true" value="" #b 
+          (input)='AtalhoDivide($event.target.value)'  [(ngModel)]="atalhoCopia"></ion-input>
+        </ion-item>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-item no-lines>
+      </ion-item>
+    </ion-row>
+
+    <p *ngIf="compras.categoria.includes('Divida')">Quando voce estiver dividindo: Colocar valor cheio e categoria das suas compras. havera divisão sozinha <br>
+       Quando a pessoa estiver pagando dividido. VALOR NEGATIVO. pagamento deve ser 'dividido'
+      por enqunato ainda esta com falhas, usar só esses dois jeitos, ajustar o resto na mão</p>
+
+    <ion-row justify-content-center>
+        <button class="btn3" ion-button round outline (click)="ontem(compras)">Ontem</button>
+        <button class="btn4" ion-button round (click)="save(compras)">Adicionar</button>
+        <button class="btn3" ion-button small round outline (click)="DividaEu(compras)" (press)="DividaDani(compras)" >Dividir</button>
+    </ion-row>
+    <ion-row justify-content-center>
+      <button class="btn3" ion-button round outline (click)="Parcelar(compras)">Parcelar</button>
+    </ion-row>
+  </ion-grid>
+
+<!-------------------------------------- ATALHOS ---------------------------------------------------------------------------->  
+
+  <div *ngIf = "show == true" class="fadeIn"> 
+    <ion-grid>
+      <ion-row justify-content-center >
+        <ion-col col-2 *ngFor="let atalho of (atalhos |  async)">
+          <button  class="btn2" ion-button outline (click)="saveAtalho(compras,atalho)" (press)="atalhoPush(atalho)">{{atalho.title}}</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+ <!-------------------------------------- GRAFICO ---------------------------------------------------------------------------->  
+  <div *ngIf="showGraf == true" class="fadeIn">
+    <p class="paragrafo">Gasto Total/Previsto -- {{compras.categoria}} -- {{Arredonda(ArrayTotal[0])}}/{{Arredonda(ArrayTotal[1])}}</p>
+    <ion-row>
+      <ion-col col-1 justify-content-center no-padding>
+        <p class="baseG">{{Arredonda(ArrayTotal[2])}}</p>
+      </ion-col>
+      <ion-col col-10 justify-content-center>
+        <div class="progress"  (click)=teste(totalM)>
+          <div class="determinate1" style="width: 0%" id="teste1" ></div>
+          <div class="determinate2" style="width: 0%" id="teste2" ></div>
+        </div>
+      </ion-col>
+      <ion-col col-1 no-padding>
+        <p class="baseG">{{Arredonda(ArrayTotal[3])}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-1 justify-content-center no-padding>
+        <p justify-content-center class="baseG">{{Arredonda(ArrayTotal[0])}}</p>
+      </ion-col>
+      <ion-col col-10 justify-content-center>
+        <div class="progress"  (click)=teste(totalM)>
+          <div class="determinate1" style="width: 0%" id="teste3" ></div>
+          <div class="determinate2" style="width: 0%" id="teste4" ></div>
+        </div>
+      </ion-col>
+      <ion-col col-1 justify-content-center no-padding>
+        <p class="baseG">{{Arredonda(ArrayTotal[1])}}</p>
+      </ion-col>
+    </ion-row>
+
+      <ion-row>
+          <ion-col col-1 justify-content-center no-padding>
+            <p class="baseG">Mes</p>
+          </ion-col>
+          <ion-col col-10 justify-content-center>
+            <div class="progress3"  (click)=teste(totalM)>
+              <div class="determinate1" style="width: 0%" id="testeMes" ></div>
+              <div class="determinate2" style="width: 0%" id="testeDia" ></div>
+            </div>
+          </ion-col>
+          <ion-col col-1 no-padding>
+            <p class="baseG">{{diaMes}}</p>
+          </ion-col>
+      </ion-row>
+
+
+  </div>
+
+  <ion-item no-lines class="Transparente"> </ion-item>
+  <ion-item no-lines class="Transparente"> </ion-item>
+  <ion-item no-lines class="Transparente"> </ion-item>
+  <ion-item no-lines class="Transparente"> </ion-item>
+
+
+
+  <ion-card>
+    <ion-card-header>
+        Categorias
+      </ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <p col-4 col-xl-3>Comida: {{SomaCat("Comida")}}/{{Prev("Comida")}} </p>
+          <p col-2 col-xl-1>{{-SomaCat("Comida")+Prev("Comida")}}</p>
+
+          <p col-4 col-xl-3>Date: {{SomaCat("Date")}}/{{Prev("Date")}}  </p>
+          <p col-2 col-xl-1>{{-SomaCat("Date")+Prev("Date")}}</p>
+
+          <p col-4 col-xl-3>Amigos: {{SomaCat("Amigos")}}/{{Prev("Amigos")}} </p>
+          <p col-2 col-xl-1>{{-SomaCat("Amigos")+Prev("Amigos")}}</p>
+
+          <p col-4 col-xl-3>Combustível: {{SomaCat("Combustivel")}}/{{Prev("Combustivel")}}</p>
+          <p col-2 col-xl-1>{{-SomaCat("Combustivel")+Prev("Combustivel")}}</p>
+
+          <p col-4 col-xl-3>Transporte: {{SomaCat("Transporte")}}/{{Prev("Transporte")}}</p>
+          <p col-2 col-xl-1>{{-SomaCat("Transporte")+Prev("Transporte")}}</p>
+
+          <p col-4 col-xl-3>Extras: {{SomaCat("Extras")}}/{{Prev("Extras")}}</p>
+          <p col-2 col-xl-1>{{-SomaCat("Extras")+Prev("Extras")}}</p>
+
+          <p col-4 col-xl-3>Total: {{SomaCat("Total")}} </p>
+        </ion-row>
+      
+      </ion-grid>
+      
+
+
+</ion-card>
+</div>
+
+
+
+
+
+ 
+
+>>>>>>> a7554127658a7a8a303c30abbf4206679f52a1d2
 </ion-content>

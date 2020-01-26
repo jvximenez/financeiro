@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
   Generated template for the AnalisePage page.
 
@@ -217,3 +218,233 @@
     </ion-card>
   </div>
 </ion-content>
+=======
+<!--
+  Generated template for the AnalisePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<!------------------------------------------------------HEADER-------------------------------------------------------->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Análise </ion-title>
+    <ion-buttons end  *ngFor="let f of (ShowTarefas | async) " >
+        <button *ngIf="f.title == 'Dividas'" ion-button icon-only color="{{CorIfTrue(f.check)}}" (click)="ChangeCheckTarefas(f)">
+          <ion-icon name="list-box"></ion-icon>
+        </button>
+      <button ion-button icon-only (click)="atualiza()">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+        <button ion-button icon-only (click)="previsao(ComprasArray, previsaoList)">
+          <ion-icon name="clipboard"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<!------------------------------------------------------/HEADER-------------------------------------------------------->
+
+
+<!------------------------------------------------------Pagamentos-------------------------------------------------------->
+<ion-content padding>
+  <div *ngFor="let f of (ShowTarefas | async) ">
+      <ion-card no-padding *ngIf="f.check == true">
+        <ion-card-header> Faturas: </ion-card-header>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                Local:
+              </ion-col>
+              <ion-col col-3>
+                Valor:
+              </ion-col>
+            </ion-row>
+
+
+            <ion-row *ngFor="let pagamento of pagamentos" >
+              <ion-col col-6 *ngIf='pagamento.title != "Ignorar" && pagamento.title != "Divida"'>
+                {{pagamento.title}}
+              </ion-col>
+              <ion-col col-6 *ngIf='pagamento.title != "Ignorar" && pagamento.title != "Divida"'  (press)="AlteraValor(somaPagDiv2(pagamento.title),pagamento.title)">
+                  {{somaPagDiv2(pagamento.title)}}
+              </ion-col> 
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                NuConta Guardado
+              </ion-col>
+              <ion-col col-6 (press)='AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")'>
+                {{+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col col-6>
+                NuConta Total
+              </ion-col>
+              <ion-col col-4 (press)='AlteraValor((somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")),"NuConta")'>
+                {{somaPagDiv2("NuConta")+somaPagDiv2("Reserva de emergência")+somaPagDiv2("Reserva para metas")+somaPagDiv2("Reserva para estudos")}}
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+
+
+
+<!------------------------------------------------------/DIVIDAS-------------------------------------------------------->
+        <ion-card-header> Dividas </ion-card-header>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                Pessoa:
+              </ion-col>
+              <ion-col col-3>
+                Gasto:
+              </ion-col>
+            </ion-row>
+            <ion-row *ngFor="let divs of ArrayDividas" (press) ='goToAnaliseDiv(divs)'>
+                <ion-col col-6>
+                    {{divs}}
+                  </ion-col>
+                  <ion-col col-3>
+                    {{somaCatDiv2(divs)}}
+                  </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-card>
+  </div>
+
+
+
+
+
+<!------------------------------------------------------/CARDS DE PREVISÃO-------------------------------------------------------->
+  <div class="main-content" (swipe)="swipe($event)">
+    <ion-card *ngFor = "let prev of (previsaoList)">
+      <ion-row>
+        <ion-col col-10>
+          <ion-card-header> {{prev.total}} </ion-card-header>  
+        </ion-col>
+        <ion-col col-2>
+        <ion-buttons end>
+          <button ion-button icon-only end clear (click)="grafico(prev,prev.total,compras,ComprasArray)">
+          <ion-icon name="stats"></ion-icon></button>
+        </ion-buttons>
+        </ion-col>
+      </ion-row>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5 class="titulo">
+            Categoria
+          </ion-col>
+          <ion-col col-3 class='center'>
+            Previsto
+          </ion-col>
+          <ion-col col-3 class='center'>
+            Gasto
+          </ion-col>
+        </ion-row>
+
+        <div *ngFor = "let keyy of retornaKeys(prev)">
+          <ion-row  *ngIf="keyy != 'key' && keyy != 'total' && keyy != 'ano' && keyy != 'mes' && keyy != 'Ignorar' && keyy != 'total2'  && keyy != 'comentario'"  (click)="goToAnalise(prev.total,keyy)">
+            <ion-col col-5>
+                {{keyy}}
+            </ion-col>
+            <ion-col col-3 class='center'>
+                {{prev[keyy]}}
+            </ion-col>
+            <ion-col col-3 col-3 class='center'>
+                {{somaCat3(keyy,prev.total)}}
+            </ion-col>
+            <ion-col col-1 no-padding >
+              <button no-padding small class='center' ion-button clear color="{{Analisa(prev[keyy],somaCat(keyy,prev.total),'color')}}">
+                <ion-icon name="{{Analisa(prev[keyy],somaCat(keyy,prev.total),'icone')}}"> </ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <ion-row class="bold">
+            <ion-col col-5 class="bold">
+              Total
+            </ion-col>
+            <ion-col col-3 class='center'>
+              {{retornaArray(prev)}}  
+            </ion-col>
+            <ion-col col-3 class='center'>
+              {{somaTotal(prev.total)}}
+            </ion-col>
+        </ion-row>
+        <ion-row class="bold">
+          <ion-col col-5 class="bold">
+            Mensal/Reserva
+          </ion-col>
+          <ion-col col-3 class='center'>
+            {{retornaArray(prev)-(somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total)))  }}
+          </ion-col>
+          <ion-col col-3 class='center'>
+            {{somaPagamento("Reserva de emergência",(prev.total))+somaPagamento("Reserva para estudos",(prev.total))+somaPagamento("Reserva para metas",(prev.total))}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="bold">
+          <ion-col col-5 class="bold">
+            Receita
+          </ion-col>
+          <ion-col col-3 class='center'>
+            {{-somaReceita(prev.total)}}
+          </ion-col>
+        </ion-row>
+
+        <button ion-button clear col-3 padding small (click)="VerMais()">Ver Mais</button>
+        <div *ngIf="showM == true">
+        <ion-row>
+          <ion-col>
+            Comentário: {{prev.comentario}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let pagamento of pagamentos" (click)="goToAnalisePag(prev.total,pagamento.title)">
+            <ion-col col-5>
+              {{pagamento.title}}
+            </ion-col>
+            <ion-col col-3  class='center'>
+                {{somaPagamento(pagamento.title, prev.total)}}
+            </ion-col>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+        </div>
+      </ion-grid>
+    
+      <!------------------------------------------------------/SOMAS DA SEMANA-------------------------------------------------------->
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 justify-content-center>
+            <ion-row style="height:20px" justify-content-center>Sem 1</ion-row>
+            <ion-row justify-content-center>{{somaSemana(1,prev.total)}}</ion-row>
+          </ion-col>
+
+          <ion-col col-3 justify-content-center>
+            <ion-row style="height:20px" justify-content-center>Sem 2</ion-row>
+            <ion-row justify-content-center>{{somaSemana(2,prev.total)}}</ion-row>
+          </ion-col>
+
+          <ion-col col-3 justify-content-center>
+            <ion-row style="height:20px" justify-content-center>Sem 3</ion-row>
+            <ion-row justify-content-center>{{somaSemana(3,prev.total)}}</ion-row>
+          </ion-col>
+
+          <ion-col col-3 justify-content-center>
+            <ion-row style="height:20px" justify-content-center>Sem 4</ion-row>
+            <ion-row justify-content-center>{{somaSemana(4,prev.total)}}</ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </ion-card>
+  </div>
+</ion-content>
+>>>>>>> a7554127658a7a8a303c30abbf4206679f52a1d2

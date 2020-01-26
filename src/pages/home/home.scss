@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 page-home {
 
     .btn {
@@ -207,3 +208,219 @@ page-home {
           
   
 
+=======
+page-home {
+
+    .btn {
+  display:block;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1.5px solid;
+    }
+
+  .transparente{
+    background-color: transparentize($color: #ffffff, $amount: 1);
+
+  }
+
+  .btn2 {
+    display:block;
+    height: 60px;
+    width: 60px;
+    border-radius: 40%;
+    border: 1.5px solid;
+    font-size: 10px;
+    line-break: auto;
+    white-space: normal;
+    opacity: 3;
+    transition: 3s !important;
+
+  
+    }
+
+  .btn3 {
+    display:block;
+    height: 50px;
+    width: 80px;
+    border: 1.5px solid;
+    font-size: 11px;
+    margin: 15px;
+
+  }
+  .btn4 {
+    display:block;
+    height: 60px;
+    width: 90px;
+    border: 1.0px solid;
+    font-size: 11px;
+    margin: 10px;
+
+  }
+
+
+  .baseG{
+    width: 100%;
+    font-family: "Open Sans";
+    font-size : 12px;
+    justify-content: center !important;
+    justify-self: center;
+    justify-items: center;
+    text-align: center;
+    padding-top: 1px;
+
+  }
+
+  .input{
+      text-align: right;
+      justify-content: right;
+
+  }
+
+  .main-content {
+    height: 100%;
+  }
+
+  .paragrafo{
+    padding-block-start: 10px;
+    padding-inline-start: 10px;
+  }
+
+  .badge{
+    padding: 0.3rem 0.3em 0.3rem 0.3rem;
+    margin: 1rem 0em 0rem 0rem;
+    background-color: black;
+  }
+
+
+
+  .progress {
+    position: relative;
+    height: 10px;
+    display: block;
+    width: 100%;
+    background-color: grey;
+    border-radius: 2px;
+    background-clip: padding-box;
+    padding: 0.7rem 0.3em 0.3rem 0rem;
+    margin: 1rem 0.3em 0.3rem 0.3rem;
+    overflow: hidden; 
+    
+
+    overflow: hidden; }
+    .progress .determinate1 {
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      bottom: 0;
+      background-color: #2f6acf;
+      transition: width .7s linear; }
+      
+    .progress .determinate2 {
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    bottom: 0;
+    background-color: #23509c;
+    transition: width .8s linear; }
+    
+                
+.progress2 {
+  position: relative;
+  height: 10px;
+  display: block;
+  width: 100%;
+  background-color: grey;
+  border-radius: 2px;
+  background-clip: padding-box;
+  padding: 0.7rem 0.3em 0.3rem 0rem;
+  margin: 1rem 0.3em 0.3rem 0.3rem;
+  overflow: hidden; 
+  .progress2 .determinate1 {
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    bottom: 0;
+    background-color: #2f6acf;
+    transition: width .7s linear; }
+  .progress2 .determinate2 {
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  bottom: 0;
+  background-color: #23509c;
+  transition: width .8s linear; }}
+
+
+  .progress3 {
+    position: relative;
+    height: 10px;
+    display: block;
+    width: 100%;
+    background-color: grey;
+    border-radius: 2px;
+    background-clip: padding-box;
+    padding: 0.7rem 0.3em 0.3rem 0rem;
+    margin: 1rem 0.3em 0.3rem 0.3rem;
+    overflow: hidden; 
+    
+
+    overflow: hidden; }
+    .progress3 .determinate1 {
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      bottom: 0;
+      background-color: grey;
+      transition: width .7s linear; }
+      
+    .progress3 .determinate2 {
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    bottom: 0;
+    background-color: #23509c;
+    transition: width .8s linear; }
+  
+
+    
+  
+  .fadeIn{
+    animation: fadeIn 3s;
+
+  }
+
+  .fadeOut{
+    animation: fadeOut 2s;
+
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+    
+  }
+
+  
+  
+
+
+
+}
+  
+          
+  
+
+>>>>>>> a7554127658a7a8a303c30abbf4206679f52a1d2

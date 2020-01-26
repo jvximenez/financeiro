@@ -31,6 +31,7 @@ export class PrevisãoPage {
   public ComprasArray;
   prevRef;loadedprevList;prevList
 
+
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbService: FirebaseServiceProvider, public alertCtrl: AlertController) {
@@ -43,6 +44,9 @@ export class PrevisãoPage {
 
     this.prevRef = firebase.database().ref('/previsao').orderByChild("total")
     console.log("entrou")
+
+    
+
 
 
 
@@ -94,7 +98,7 @@ export class PrevisãoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPrevisãoPage');
+    console.log('ionViewDidLoad AddPrevisãoPage!');
   }
 
   criaObjeto(prop){
@@ -204,6 +208,7 @@ export class PrevisãoPage {
   }
   ////////////////////////////acabou///////////////////
 
+  
   somaCat(categoria,data){
     var valorCat = 0 
     this.ComprasArray.forEach(item => {if (String(item[2]) == String(categoria) && 
